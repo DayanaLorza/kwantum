@@ -14,11 +14,11 @@
 
     const onEnter = () => {
       gsap.to(panel, {
-        scale: 1.03,
-        y: -10,
-        boxShadow: "0 0 40px rgba(0, 255, 65, 0.6)",
-        duration: 0.25,
-        ease: "power2.out",
+        scale: 1.015,
+        y: -6,
+        boxShadow: "0 0 22px rgba(0, 255, 65, 0.35)",
+        duration: 0.4,
+        ease: "power3.out",
         overwrite: "auto"
       });
     };
@@ -28,8 +28,8 @@
         scale: 1,
         y: 0,
         boxShadow: "0 0 0 rgba(0, 255, 65, 0)",
-        duration: 0.25,
-        ease: "power2.out",
+        duration: 0.35,
+        ease: "power3.out",
         overwrite: "auto"
       });
     };
@@ -87,11 +87,7 @@
         <span class="logo__mark">K</span>
         <span class="logo__text">Kwantum Tech</span>
       </a>
-      <nav class="menu">
-        <a href="#services">Services</a>
-        <a href="mailto:hello@kwantum.tech">Say hello</a>
-        <button class="menu__button" type="button" aria-label="Open menu">Menu</button>
-      </nav>
+
     </div>
   </header>
   <section class="hero hero--video" id="hero">
@@ -119,15 +115,15 @@
     <div class="hero__inner">
       <div class="hero__content">
         <div class="hero__content-left">
-          <div class="hero__topline">
-            <p class="eyebrow">Kwantum Tech</p>
-            <span class="hero__tag">Premium Software Engineering</span>
-          </div>
-          <h1>Building software worthy of your net worth.</h1>
-          <p class="lead">
-            Custom mobile + web applications that match your standards — and your bank account.
-          </p>
-		  <p class="sub-tagline">Keeping rich people apps as sharp as their lifestyle.</p>
+        <div class="hero__topline">
+          <p class="eyebrow">Kwantum Tech</p>
+          <span class="hero__tag">Premium Software Engineering</span>
+        </div>
+        <!-- <h1>Quantum-grade engineering for elite ambitions.</h1> -->
+        <h1>Elevating ambition through flawless digital execution.</h1>
+        <p class="lead">
+          Custom-built mobile and web applications engineered for visionary leaders and high-impact enterprises where performance, security, and discretion are non-negotiable.
+        </p>
         </div>
         <div class="hero__content-right">
           <div class="hero__meta">
@@ -152,10 +148,10 @@
           </div>
           <div class="hero__cta-panel cta-panel">
             <a
-              class="button button--ghost button--narrow"
-              href="https://calendly.com/your-handle/15min"
+              class="button button--ghost"
+              href="https://calendly.com/kwantumconsulting/30min"
             >
-              Book a call
+              Schedule a Strategy Review
             </a>
           </div>
         </div>
@@ -171,27 +167,36 @@
 
   <section id="services" class="services">
     <header>
-      <p class="eyebrow">What I Fix</p>
-      <h2>Elite problems deserve elite solutions.</h2>
+      <p class="eyebrow">What We Solve</p>
+      <h2>Elite challenges require elite execution.</h2>
       <p>
-        One-off builds and optimizations that make your tech feel as expensive as everything else
-        you own.
+        Targeted builds and optimizations that deliver breakthrough performance, flawless design,
+        and absolute discretion.
       </p>
     </header>
     <div class="services__grid">
       <article>
-        <h3>Custom Mobile & Web Apps</h3>
-        <p>Bespoke applications that load fast, look flawless, and stay private.</p>
+        <h3>Custom Mobile & Web Applications</h3>
+        <p>
+          Custom-built solutions that load instantly, look impeccable, and remain completely
+          private.
+        </p>
         <span>01</span>
       </article>
       <article>
         <h3>Performance Overhauls</h3>
-        <p>Turn slow, dated systems into something that matches your standards.</p>
+        <p>
+          Transforming slow or legacy systems into high-speed, modern infrastructure that meets
+          the highest standards.
+        </p>
         <span>02</span>
       </article>
       <article>
         <h3>Private & Secure Tools</h3>
-        <p>Discreet solutions for finance, crypto, scheduling, or whatever keeps you ahead.</p>
+        <p>
+          Discreet, fortified solutions for sensitive operations — from finance and crypto to
+          scheduling and proprietary workflows.
+        </p>
         <span>03</span>
       </article>
     </div>
@@ -205,9 +210,10 @@
           <span>Kwantum Tech</span>
         </div>
         <p>
-          Futuristic consulting for founders who demand performance, privacy, and premium software
-          experiences.
+          Uncompromising digital execution delivered with precision and discretion for visionary founders who demand flawless performance, ironclad privacy, and software that elevates their most ambitious ventures to new heights.
         </p>
+      </div>
+      <div class="footer__aside">
         <div class="footer__cta">
           <span>Start a private conversation</span>
           <a href="mailto:hello@kwantumtech.com">hello@kwantumtech.com</a>
@@ -217,7 +223,7 @@
     </div>
 
     <div class="footer__base">
-      <span>© 2026 Kwantum Tech. All rights reserved.</span>
+      <span>© 2026 Kwantum Consulting LLC. All rights reserved.</span>
       <span>Crafted for high-performance teams.</span>
     </div>
   </footer>
@@ -290,28 +296,6 @@
     letter-spacing: 0.04em;
   }
 
-  .menu {
-    display: inline-flex;
-    align-items: center;
-    gap: 1.5rem;
-    font-size: 0.95rem;
-  }
-
-  .menu a {
-    color: var(--text);
-    text-decoration: none;
-  }
-
-  .menu__button {
-    border: 1px solid var(--primary);
-    background: transparent;
-    color: var(--text);
-    padding: 0.45rem 1rem;
-    border-radius: 999px;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-size: 0.7rem;
-  }
 
   .hero {
     width: 100%;
@@ -431,13 +415,6 @@
     color: var(--text);
   }
 
-  .sub-tagline {
-    font-size: 1.2rem;
-    margin: 0;
-    opacity: 0.85;
-    max-width: 520px;
-  }
-
   .button {
     display: inline-flex;
     align-items: center;
@@ -539,7 +516,7 @@
     border: 1px solid rgba(255, 255, 255, 0.06);
     min-height: 180px;
     display: grid;
-    gap: 0.8rem;
+    gap: 0;
   }
 
   .services__grid span {
@@ -562,11 +539,19 @@
   .site-footer__inner {
     display: grid;
     gap: 2rem;
+    grid-template-columns: minmax(240px, 1fr) auto;
+    align-items: start;
   }
 
   .footer__brand {
     display: grid;
     gap: 1.6rem;
+  }
+
+  .footer__aside {
+    display: grid;
+    justify-items: end;
+    align-content: start;
   }
 
   .footer__logo {
@@ -601,6 +586,7 @@
     border-radius: 16px;
     border: 1px solid rgba(0, 255, 65, 0.2);
     background: rgba(0, 0, 0, 0.6);
+    margin: 4rem 4rem 2rem 0;
   }
 
   .footer__cta span {
@@ -648,8 +634,12 @@
       padding: 1.1rem 6vw;
     }
 
-    .menu a {
-      display: none;
+    .site-footer__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .footer__aside {
+      justify-items: start;
     }
 
   }
