@@ -1,39 +1,42 @@
-# sv
+# Kwantum Tech
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Home of **Kwantum Tech**, the flagship site for **Kwantum Consulting LLC**. This project is a
+high-contrast, futuristic landing experience featuring a video-backed hero, GSAP micro‑interactions,
+and a sleek services + footer layout.
 
-## Creating a project
+## What’s inside
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **Hero** with full-bleed video background and interactive CTA tilt
+- **Capabilities + Industries** overview in the hero
+- **Services** section tailored to high‑touch consulting engagements
+- **Minimal footer** with brand + contact CTA
+
+## Development
+
+Install dependencies:
 
 ```sh
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+npm install
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Run the dev server:
 
 ```sh
 npm run dev
-
-# or start the server and open the app in a new browser tab
+# open in a browser
 npm run dev -- --open
 ```
 
-## Building
+## Build
 
-To create a production version of your app:
+Create a production build:
 
 ```sh
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+Preview the production build:
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
-# kwantum
+```sh
+npm run preview
+```
