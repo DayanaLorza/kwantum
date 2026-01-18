@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import gsap from "gsap";
+  import Logo from "$lib/Logo.svelte";
 
   onMount(() => {
     const panel = document.querySelector(".cta-panel");
@@ -84,8 +85,7 @@
   <header class="site-header">
     <div class="site-header__inner">
       <a class="logo" href="#hero" aria-label="Kwantum Tech home">
-        <span class="logo__mark">K</span>
-        <span class="logo__text">Kwantum Tech</span>
+        <Logo size={36} />
       </a>
 
     </div>
@@ -205,10 +205,6 @@
   <footer class="site-footer">
     <div class="site-footer__inner">
       <div class="footer__brand">
-        <div class="footer__logo">
-          <span class="footer__mark">K</span>
-          <span>Kwantum Tech</span>
-        </div>
         <p>
           Uncompromising digital execution delivered with precision and discretion for visionary founders who demand flawless performance, ironclad privacy, and software that elevates their most ambitious ventures to new heights.
         </p>
@@ -282,14 +278,11 @@
   }
 
   .logo__mark {
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 36px;
     height: 36px;
-    border-radius: 12px;
-    background: var(--primary);
-    color: var(--bg);
-    font-weight: 700;
   }
 
   .logo__text {
@@ -408,7 +401,7 @@
   }
 
   .lead {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     line-height: 1.6;
     margin-bottom: 2.1rem;
     max-width: 520px;
@@ -554,25 +547,6 @@
     align-content: start;
   }
 
-  .footer__logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-  }
-
-  .footer__mark {
-    display: grid;
-    place-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 14px;
-    background: var(--primary);
-    color: var(--bg);
-    font-weight: 700;
-  }
-
   .footer__brand p {
     color: rgba(224, 255, 224, 0.8);
     max-width: 420px;
@@ -651,6 +625,15 @@
 
     .hero__video-el--mirror {
       display: none;
+    }
+
+    .hero__video-overlay {
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.75) 55%,
+        rgba(0, 0, 0, 0.85) 100%
+      );
     }
   }
 </style>
