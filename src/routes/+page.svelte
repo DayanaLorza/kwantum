@@ -635,5 +635,27 @@
         rgba(0, 0, 0, 0.85) 100%
       );
     }
+
+    .button--ghost {
+      font-size: 1.25rem;
+      width: 210px;
+      height: 45px;
+      text-align: center;
+    }
+
+    .button--narrow {
+      padding: 0.5rem 1rem;
+      width: 210px;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .hero__cta-panel {
+      justify-self: center;
+    }
+
+    .lead {
+      font-size: 1rem;
+    }
   }
 </style>
