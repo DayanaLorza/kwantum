@@ -389,7 +389,7 @@
     font-size: clamp(2.6rem, 3vw + 1.2rem, 4rem);
     margin: 0 0 1.3rem;
     line-height: 1.06;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.05em;
     color: #ffffff;
     text-shadow: 0 0 6px rgba(0, 255, 65, 0.5);
   }
@@ -677,6 +677,7 @@
       font-size: 1.75rem;
       line-height: 1.2;
       margin-bottom: 1rem;
+      text-shadow: 0 0 3px rgba(0, 255, 65, 0.3);
     }
 
     .lead {

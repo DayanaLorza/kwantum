@@ -92,8 +92,8 @@
     color: #00ff41;
     text-shadow:
       0 0 2px #00ff41,
-      0 0 10px #00ff41,
-      0 0 20px #00ff41;
+      0 0 6px #00ff41,
+      0 0 12px #00ff41;
     user-select: none;
     display: inline-block;
   }
@@ -104,8 +104,8 @@
     color: #00ff41;
     text-shadow:
       0 0 2px #00ff41,
-      0 0 10px #00ff41,
-      0 0 20px #00ff41;
+      0 0 6px #00ff41,
+      0 0 12px #00ff41;
     margin-left: -15px;
     opacity: 0;
     animation: blink 1s step-end infinite paused;
