@@ -93,8 +93,17 @@
   <section class="hero hero--video" id="hero">
     <div class="hero__video" aria-hidden="true">
       <video
-        class="hero__video-el"
+        class="hero__video-el hero__video-el--desktop"
         src="/waves.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+      ></video>
+      <video
+        class="hero__video-el hero__video-el--mobile"
+        src="/waves-compressed.mp4"
         autoplay
         muted
         loop
@@ -333,6 +342,14 @@
     z-index: 1;
   }
 
+  .hero__video-el--mobile {
+    display: none;
+  }
+
+  .hero__video-el--desktop {
+    display: block;
+  }
+
   .hero__inner {
     display: grid;
     gap: 3rem;
@@ -426,6 +443,10 @@
     color: var(--primary);
 	font-size: x-large;
 	font-weight: 300;
+	text-shadow:
+      0 0 2px #00ff41,
+      0 0 5px #00ff41,
+      0 0 10px #00ff41;
   }
 
   .button--narrow {
@@ -619,12 +640,24 @@
   }
 
   @media (max-width: 640px) {
+    .hero {
+      padding: 2rem 0;
+    }
+
     .hero__video {
       grid-template-columns: 1fr;
     }
 
     .hero__video-el--mirror {
       display: none;
+    }
+
+    .hero__video-el--desktop {
+      display: none;
+    }
+
+    .hero__video-el--mobile {
+      display: block;
     }
 
     .hero__video-overlay {
@@ -636,11 +669,45 @@
       );
     }
 
+    .hero__content {
+      row-gap: 1.5rem;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .lead {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero__meta {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      font-size: 0.85rem;
+    }
+
+    .hero__meta span {
+      font-size: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero__list {
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
     .button--ghost {
       font-size: 1.25rem;
-      width: 210px;
+      width: 225px;
       height: 45px;
       text-align: center;
+      line-height: 1.8rem;
     }
 
     .button--narrow {
@@ -652,10 +719,7 @@
 
     .hero__cta-panel {
       justify-self: center;
-    }
-
-    .lead {
-      font-size: 1rem;
+      margin-top: 0.5rem;
     }
   }
 </style>
