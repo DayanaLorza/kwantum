@@ -3,7 +3,29 @@
   import gsap from "gsap";
   import Logo from "$lib/Logo.svelte";
 
+  let showMobileVideo = false;
+  let fadeStaticBg = false;
+
   onMount(() => {
+    const isMobile = window.innerWidth <= 640;
+
+    // Load mobile video after a delay to prioritize static image
+    if (isMobile) {
+      setTimeout(() => {
+        showMobileVideo = true;
+
+        // Wait for video to start playing, then fade out static image
+        setTimeout(() => {
+          const video = document.querySelector('.hero__video-el--mobile');
+          if (video) {
+            video.addEventListener('canplay', () => {
+              fadeStaticBg = true;
+            }, { once: true });
+          }
+        }, 100);
+      }, 1000);
+    }
+
     const panel = document.querySelector(".cta-panel");
     const hero = document.querySelector(".hero");
     if (!panel || !hero) return;
@@ -92,6 +114,15 @@
   </header>
   <section class="hero hero--video" id="hero">
     <div class="hero__video" aria-hidden="true">
+      <!-- Static image for mobile - shows immediately -->
+      <img
+        class="hero__static-bg hero__static-bg--mobile"
+        class:hero__static-bg--fade={fadeStaticBg}
+        src="/static-bg.png"
+        alt=""
+      />
+
+      <!-- Videos -->
       <video
         class="hero__video-el hero__video-el--desktop"
         src="/waves.mp4"
@@ -101,15 +132,17 @@
         playsinline
         preload="none"
       ></video>
-      <video
-        class="hero__video-el hero__video-el--mobile"
-        src="/waves-compressed.mp4"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto"
-      ></video>
+      {#if showMobileVideo}
+        <video
+          class="hero__video-el hero__video-el--mobile"
+          src="/waves-compressed.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        ></video>
+      {/if}
       <video
         class="hero__video-el hero__video-el--mirror"
         src="/waves.mp4"
@@ -318,12 +351,14 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     z-index: 0;
+    background: #000000;
   }
 
   .hero__video-el {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    background: #000000;
   }
 
   .hero__video-el--mirror {
@@ -348,6 +383,24 @@
 
   .hero__video-el--desktop {
     display: block;
+  }
+
+  .hero__static-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    display: none;
+    transition: opacity 2s ease-in-out;
+  }
+
+  .hero__static-bg--mobile {
+    display: none;
+  }
+
+  .hero__static-bg--fade {
+    opacity: 0;
   }
 
   .hero__inner {
@@ -659,6 +712,20 @@
 
     .hero__video-el--mobile {
       display: block;
+      z-index: 1;
+      opacity: 0;
+      animation: fadeInVideo 2s ease-in-out forwards;
+    }
+
+    @keyframes fadeInVideo {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .hero__static-bg--mobile {
+      display: block;
+      z-index: 0;
     }
 
     .hero__video-overlay {

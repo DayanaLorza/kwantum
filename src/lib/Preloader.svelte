@@ -7,29 +7,64 @@
 
   onMount(() => {
     const isMobile = window.innerWidth <= 640;
+    let hasFinished = false;
+    let maxWaitTimeout;
+    let pageLoaded = false;
+
+    // Check if page is already loaded
+    if (document.readyState === 'complete') {
+      pageLoaded = true;
+    }
+
+    // INSTANT load on mobile - super fast progress
+    const progressSpeed = isMobile ? 20 : 100; // Mobile: 20ms interval (5x faster)
+    const progressIncrement = isMobile ? 25 : 15; // Mobile: bigger jumps
 
     // Simulate progress while assets load
     const progressInterval = setInterval(() => {
-      progress = Math.min(progress + Math.random() * 15, 99);
+      progress = Math.min(progress + Math.random() * progressIncrement, 99);
       if (progress >= 99) {
         clearInterval(progressInterval);
+        // Once we hit 99%, finish immediately if page already loaded, otherwise wait
+        if (pageLoaded) {
+          handleLoad();
+        } else {
+          // Mobile: only wait 300ms max at 99%, Desktop: 1.5s
+          maxWaitTimeout = setTimeout(() => {
+            handleLoad();
+          }, isMobile ? 300 : 1500);
+        }
       }
-    }, isMobile ? 50 : 100);
+    }, progressSpeed);
 
     // Wait for all assets to load
     const handleLoad = () => {
+      if (hasFinished) return;
+      hasFinished = true;
+      clearInterval(progressInterval);
+      if (maxWaitTimeout) clearTimeout(maxWaitTimeout);
       progress = 100;
       setTimeout(() => {
         isLoading = false;
-      }, isMobile ? 150 : 300);
+      }, isMobile ? 100 : 300); // Mobile: 100ms exit delay, Desktop: 300ms
     };
 
-    if (document.readyState === 'complete') {
-      handleLoad();
-    } else {
-      window.addEventListener('load', handleLoad);
-      return () => window.removeEventListener('load', handleLoad);
+    if (!pageLoaded) {
+      window.addEventListener('load', () => {
+        pageLoaded = true;
+        // If we're already at 99%, finish now
+        if (progress >= 99) {
+          if (maxWaitTimeout) clearTimeout(maxWaitTimeout);
+          handleLoad();
+        }
+      });
     }
+
+    return () => {
+      window.removeEventListener('load', handleLoad);
+      if (maxWaitTimeout) clearTimeout(maxWaitTimeout);
+      clearInterval(progressInterval);
+    };
   });
 </script>
 
