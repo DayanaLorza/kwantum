@@ -99,7 +99,7 @@
         muted
         loop
         playsinline
-        preload="metadata"
+        preload="none"
       ></video>
       <video
         class="hero__video-el hero__video-el--mobile"
@@ -108,7 +108,7 @@
         muted
         loop
         playsinline
-        preload="metadata"
+        preload="auto"
       ></video>
       <video
         class="hero__video-el hero__video-el--mirror"
@@ -117,7 +117,7 @@
         muted
         loop
         playsinline
-        preload="metadata"
+        preload="none"
       ></video>
       <div class="hero__video-overlay"></div>
     </div>

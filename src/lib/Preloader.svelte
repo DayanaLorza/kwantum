@@ -6,20 +6,22 @@
   let progress = 0;
 
   onMount(() => {
+    const isMobile = window.innerWidth <= 640;
+
     // Simulate progress while assets load
     const progressInterval = setInterval(() => {
       progress = Math.min(progress + Math.random() * 15, 99);
       if (progress >= 99) {
         clearInterval(progressInterval);
       }
-    }, 100);
+    }, isMobile ? 50 : 100);
 
     // Wait for all assets to load
     const handleLoad = () => {
       progress = 100;
       setTimeout(() => {
         isLoading = false;
-      }, 300);
+      }, isMobile ? 150 : 300);
     };
 
     if (document.readyState === 'complete') {

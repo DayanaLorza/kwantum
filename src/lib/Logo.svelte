@@ -13,10 +13,11 @@
 
   onMount(() => {
     letters = Array.from(textContainer.children);
+    const isMobile = window.innerWidth <= 640;
 
     function createDecoderAnimation() {
       const tl = gsap.timeline({
-        delay: 0.3,
+        delay: isMobile ? 0.1 : 0.3,
         onComplete: () => {
           gsap.delayedCall(60, () => {
             // Hide cursor before restarting
