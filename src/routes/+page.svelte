@@ -130,7 +130,7 @@
         muted
         loop
         playsinline
-        preload="none"
+        preload="auto"
       ></video>
       {#if showMobileVideo}
         <video
@@ -150,7 +150,7 @@
         muted
         loop
         playsinline
-        preload="none"
+        preload="auto"
       ></video>
       <div class="hero__video-overlay"></div>
     </div>
@@ -392,7 +392,7 @@
     object-fit: cover;
     z-index: 0;
     display: none;
-    transition: opacity 2s ease-in-out;
+    transition: opacity 3s ease-in-out;
   }
 
   .hero__static-bg--mobile {
@@ -714,7 +714,7 @@
       display: block;
       z-index: 1;
       opacity: 0;
-      animation: fadeInVideo 2s ease-in-out forwards;
+      animation: fadeInVideo 3s ease-in-out forwards;
     }
 
     @keyframes fadeInVideo {
