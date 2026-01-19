@@ -122,11 +122,11 @@
 
   @media (max-width: 640px) {
     .kwantum-logo .logo-letter {
-      text-shadow: 0 0 5px #00ff41 !important;
+      text-shadow: 0 0 1px #00ff41 !important;
     }
 
     .kwantum-logo .cursor {
-      text-shadow: 0 0 5px #00ff41 !important;
+      text-shadow: 0 0 4px #00ff41 !important;
     }
   }
 </style>
