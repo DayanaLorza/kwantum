@@ -408,6 +408,7 @@
     color: var(--primary);
     margin: 0;
     font-size: 0.72rem;
+    white-space: nowrap;
   }
 
   .hero__tag {
@@ -673,6 +674,10 @@
       row-gap: 1.5rem;
     }
 
+    .hero__topline {
+      display: none;
+    }
+
     h1 {
       font-size: 1.75rem;
       line-height: 1.2;
@@ -704,11 +709,12 @@
     }
 
     .button--ghost {
-      font-size: 1.25rem;
-      width: 225px;
-      height: 45px;
+      font-size: 1.1rem;
+      width: auto;
+      height: auto;
+      padding: 0.7rem 1.2rem;
       text-align: center;
-      line-height: 1.8rem;
+      line-height: 1.4;
     }
 
     .button--narrow {
@@ -721,6 +727,8 @@
     .hero__cta-panel {
       justify-self: center;
       margin-top: 0.5rem;
+      width: 100%;
+      max-width: 100%;
     }
   }
 </style>
