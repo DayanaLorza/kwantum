@@ -5,7 +5,7 @@
   // Private access - SECURED
   let isAuthenticated = $state(false);
   let authToken = $state('');
-  const SECRET_TOKEN = 'kwtm-dckjcecp-7917'; // Secure token - only Day has access
+  const SECRET_TOKEN = 'kwtm-dckjcecp-7917';
   
   // Bot stats
   let stats = $state({
@@ -14,19 +14,15 @@
     opportunities: 0,
     trades: 0,
     profit: 0,
-    status: 'Connecting...',
+    status: 'Loading...',
     lastScan: null,
     recentLogs: []
   });
   
   let logs = $state([]);
-  let ws = $state(null);
-  let wsStatus = $state('disconnected');
-  let reconnectTimer = $state(null);
-  
-  // WebSocket URL - update for production
-  const WS_URL = 'wss://ws.kwantumtech.com:8765';  // Use wss:// for HTTPS sites
-  // Alternative: 'ws://5.75.141.76:8765' for direct VPS connection
+  let refreshInterval = $state(null);
+  let lastUpdate = $state(null);
+  let connectionStatus = $state('connecting');
   
   function authenticate() {
     if (authToken === SECRET_TOKEN) {
@@ -34,7 +30,7 @@
       if (browser) {
         localStorage.setItem('kwantum_dashboard_auth', SECRET_TOKEN);
       }
-      connectWebSocket();
+      startDataRefresh();
     } else {
       alert('Invalid access token');
     }
@@ -46,73 +42,57 @@
       if (saved === SECRET_TOKEN) {
         isAuthenticated = true;
         authToken = SECRET_TOKEN;
-        connectWebSocket();
+        startDataRefresh();
       }
     }
   }
   
-  function connectWebSocket() {
-    if (!browser || ws) return;
-    
+  async function fetchData() {
     try {
-      wsStatus = 'connecting';
+      connectionStatus = 'loading';
+      const response = await fetch('/api/bot-stats');
       
-      // For now, use direct VPS connection (ws:// not wss://)
-      // In production, you'll want wss:// behind nginx or cloudflare
-      ws = new WebSocket('ws://5.75.141.76:8765');
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
       
-      ws.onopen = () => {
-        wsStatus = 'connected';
-        console.log('WebSocket connected');
+      const data = await response.json();
+      
+      // Update stats
+      stats = {
+        scans: data.scans || 0,
+        markets: data.markets || 494,
+        opportunities: data.opportunities || 0,
+        trades: data.trades || 0,
+        profit: data.profit || 0,
+        status: data.status || 'Unknown',
+        lastScan: data.lastScan,
+        recentLogs: data.recentLogs || []
       };
       
-      ws.onmessage = (event) => {
-        try {
-          const message = JSON.parse(event.data);
-          
-          if (message.type === 'stats') {
-            stats = message.data;
-            // Convert recent logs format
-            if (message.data.recentLogs) {
-              logs = message.data.recentLogs.map(log => ({
-                time: log.time,
-                level: log.level,
-                message: log.message
-              }));
-            }
-          }
-        } catch (e) {
-          console.error('Failed to parse message:', e);
-        }
-      };
+      // Update logs
+      if (data.recentLogs) {
+        logs = data.recentLogs;
+      }
       
-      ws.onclose = () => {
-        wsStatus = 'disconnected';
-        ws = null;
-        console.log('WebSocket disconnected, reconnecting in 5s...');
-        reconnectTimer = setTimeout(connectWebSocket, 5000);
-      };
+      lastUpdate = new Date();
+      connectionStatus = 'connected';
       
-      ws.onerror = (error) => {
-        console.error('WebSocket error:', error);
-        wsStatus = 'error';
-      };
-      
-    } catch (e) {
-      console.error('Failed to connect:', e);
-      wsStatus = 'error';
-      reconnectTimer = setTimeout(connectWebSocket, 5000);
+    } catch (error) {
+      console.error('Failed to fetch data:', error);
+      connectionStatus = 'error';
     }
   }
   
-  function disconnectWebSocket() {
-    if (reconnectTimer) {
-      clearTimeout(reconnectTimer);
-      reconnectTimer = null;
-    }
-    if (ws) {
-      ws.close();
-      ws = null;
+  function startDataRefresh() {
+    fetchData(); // Initial fetch
+    refreshInterval = setInterval(fetchData, 5000); // Refresh every 5 seconds
+  }
+  
+  function stopDataRefresh() {
+    if (refreshInterval) {
+      clearInterval(refreshInterval);
+      refreshInterval = null;
     }
   }
   
@@ -120,7 +100,7 @@
     if (browser) {
       localStorage.removeItem('kwantum_dashboard_auth');
     }
-    disconnectWebSocket();
+    stopDataRefresh();
     isAuthenticated = false;
     authToken = '';
   }
@@ -130,7 +110,7 @@
   });
   
   onDestroy(() => {
-    disconnectWebSocket();
+    stopDataRefresh();
   });
 </script>
 
@@ -163,14 +143,25 @@
     <div class="max-w-7xl mx-auto flex justify-between items-center">
       <div class="flex items-center gap-4">
         <h1 class="text-2xl text-cyan-400">💰 Polymarket Arbitrage Dashboard</h1>
-        <span class="text-xs px-2 py-1 rounded {wsStatus === 'connected' ? 'bg-green-900 text-green-400' : wsStatus === 'connecting' ? 'bg-yellow-900 text-yellow-400' : 'bg-red-900 text-red-400'}">
-          WS: {wsStatus}
+        <span class="text-xs px-2 py-1 rounded 
+          {connectionStatus === 'connected' ? 'bg-green-900 text-green-400' : 
+           connectionStatus === 'loading' ? 'bg-yellow-900 text-yellow-400' : 
+           'bg-red-900 text-red-400'}">
+          {connectionStatus === 'connected' ? '🟢 Live' : 
+           connectionStatus === 'loading' ? '🟡 Loading...' : 
+           '🔴 Error'}
         </span>
+        {#if lastUpdate}
+          <span class="text-xs text-gray-500">
+            Updated: {lastUpdate.toLocaleTimeString()}
+          </span>
+        {/if}
       </div>
       <div class="flex items-center gap-4">
         <span class="text-sm text-gray-400">
           Status: 
-          <span class={stats.status === 'Running' ? 'text-green-400' : 'text-red-400'}>
+          <span class={stats.status === 'Running' ? 'text-green-400' : 
+                       stats.status === 'Error' ? 'text-red-400' : 'text-yellow-400'}>
             {stats.status}
           </span>
         </span>
@@ -221,15 +212,19 @@
         <h2 class="text-xl text-cyan-400 mb-4 flex items-center gap-2">
           <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
           Live Logs
-          {#if wsStatus === 'connected'}
-            <span class="text-xs text-green-400">(Real-time)</span>
+          {#if connectionStatus === 'connected'}
+            <span class="text-xs text-green-400">(MongoDB)</span>
+          {:else if connectionStatus === 'loading'}
+            <span class="text-xs text-yellow-400">(Loading...)</span>
           {:else}
-            <span class="text-xs text-yellow-400">(Reconnecting...)</span>
+            <span class="text-xs text-red-400">(Error)</span>
           {/if}
         </h2>
         <div class="bg-black rounded p-4 h-96 overflow-y-auto font-mono text-sm">
           {#if logs.length === 0}
-            <div class="text-gray-500 italic">Waiting for logs...</div>
+            <div class="text-gray-500 italic">
+              {connectionStatus === 'loading' ? 'Loading logs...' : 'No logs available'}
+            </div>
           {:else}
             {#each logs as log}
               <div class="mb-1">
@@ -271,9 +266,9 @@
             <span class="text-gray-300">{stats.lastScan || 'N/A'}</span>
           </div>
           <div class="flex justify-between">
-            <span class="text-gray-400">Connection</span>
-            <span class={wsStatus === 'connected' ? 'text-green-400' : 'text-yellow-400'}>
-              {wsStatus === 'connected' ? 'Live' : wsStatus}
+            <span class="text-gray-400">Data Source</span>
+            <span class={connectionStatus === 'connected' ? 'text-green-400' : 'text-yellow-400'}>
+              {connectionStatus === 'connected' ? 'MongoDB' : 'Connecting...'}
             </span>
           </div>
         </div>
@@ -305,7 +300,7 @@
     <!-- Footer -->
     <footer class="mt-8 text-center text-gray-500 text-sm">
       <p>Kwantum Tech - Polymarket Arbitrage Bot | 3-Day Paper Trading Period</p>
-      <p class="mt-1">Real-time updates via WebSocket | Connected to VPS: 5.75.141.76</p>
+      <p class="mt-1">Data refreshes every 5 seconds | Connected to MongoDB</p>
     </footer>
   </main>
 </div>
