@@ -2,10 +2,10 @@
   import { onMount, onDestroy } from 'svelte';
   import { browser } from '$app/environment';
   
-  // Private access - simple auth
+  // Private access - CHANGE THIS TOKEN!
   let isAuthenticated = $state(false);
   let authToken = $state('');
-  const SECRET_TOKEN = 'kwantum-alpha-2026'; // Change this to your secret
+  const SECRET_TOKEN = 'kwantum-alpha-2026'; // TODO: Change this!
   
   // Bot stats
   let stats = $state({
@@ -14,17 +14,27 @@
     opportunities: 0,
     trades: 0,
     profit: 0,
-    status: 'Loading...'
+    status: 'Connecting...',
+    lastScan: null,
+    recentLogs: []
   });
   
   let logs = $state([]);
-  let refreshInterval;
+  let ws = $state(null);
+  let wsStatus = $state('disconnected');
+  let reconnectTimer = $state(null);
+  
+  // WebSocket URL - update for production
+  const WS_URL = 'wss://ws.kwantumtech.com:8765';  // Use wss:// for HTTPS sites
+  // Alternative: 'ws://5.75.141.76:8765' for direct VPS connection
   
   function authenticate() {
     if (authToken === SECRET_TOKEN) {
       isAuthenticated = true;
-      localStorage.setItem('kwantum_dashboard_auth', SECRET_TOKEN);
-      startRefresh();
+      if (browser) {
+        localStorage.setItem('kwantum_dashboard_auth', SECRET_TOKEN);
+      }
+      connectWebSocket();
     } else {
       alert('Invalid access token');
     }
@@ -36,61 +46,83 @@
       if (saved === SECRET_TOKEN) {
         isAuthenticated = true;
         authToken = SECRET_TOKEN;
-        startRefresh();
+        connectWebSocket();
       }
     }
   }
   
-  async function fetchStats() {
+  function connectWebSocket() {
+    if (!browser || ws) return;
+    
     try {
-      // This would connect to your VPS API endpoint
-      // For now, showing placeholder data structure
-      const response = await fetch('/api/bot-stats');
-      if (response.ok) {
-        const data = await response.json();
-        stats = data;
-      }
-    } catch (e) {
-      console.log('Using demo data - connect to VPS for real data');
-      // Demo data until API is connected
-      stats = {
-        scans: 47,
-        markets: 494,
-        opportunities: 0,
-        trades: 0,
-        profit: 0.00,
-        status: 'Running',
-        lastScan: new Date().toLocaleTimeString()
+      wsStatus = 'connecting';
+      
+      // For now, use direct VPS connection (ws:// not wss://)
+      // In production, you'll want wss:// behind nginx or cloudflare
+      ws = new WebSocket('ws://5.75.141.76:8765');
+      
+      ws.onopen = () => {
+        wsStatus = 'connected';
+        console.log('WebSocket connected');
       };
-    }
-  }
-  
-  async function fetchLogs() {
-    try {
-      const response = await fetch('/api/bot-logs?lines=50');
-      if (response.ok) {
-        const data = await response.json();
-        logs = data.logs || [];
-      }
+      
+      ws.onmessage = (event) => {
+        try {
+          const message = JSON.parse(event.data);
+          
+          if (message.type === 'stats') {
+            stats = message.data;
+            // Convert recent logs format
+            if (message.data.recentLogs) {
+              logs = message.data.recentLogs.map(log => ({
+                time: log.time,
+                level: log.level,
+                message: log.message
+              }));
+            }
+          }
+        } catch (e) {
+          console.error('Failed to parse message:', e);
+        }
+      };
+      
+      ws.onclose = () => {
+        wsStatus = 'disconnected';
+        ws = null;
+        console.log('WebSocket disconnected, reconnecting in 5s...');
+        reconnectTimer = setTimeout(connectWebSocket, 5000);
+      };
+      
+      ws.onerror = (error) => {
+        console.error('WebSocket error:', error);
+        wsStatus = 'error';
+      };
+      
     } catch (e) {
-      // Demo logs
-      logs = [
-        { time: '18:52:11', level: 'INFO', message: '🚀 Bot started - Paper trading mode' },
-        { time: '18:52:11', level: 'INFO', message: 'Scanning 494 markets for arbitrage...' },
-        { time: '18:52:11', level: 'INFO', message: 'Found 0 arbitrage opportunities' },
-        { time: '18:52:42', level: 'INFO', message: 'Scan #2 completed - 494 markets' },
-        { time: '18:53:12', level: 'INFO', message: 'Scan #3 completed - 494 markets' }
-      ];
+      console.error('Failed to connect:', e);
+      wsStatus = 'error';
+      reconnectTimer = setTimeout(connectWebSocket, 5000);
     }
   }
   
-  function startRefresh() {
-    fetchStats();
-    fetchLogs();
-    refreshInterval = setInterval(() => {
-      fetchStats();
-      fetchLogs();
-    }, 5000); // Refresh every 5 seconds
+  function disconnectWebSocket() {
+    if (reconnectTimer) {
+      clearTimeout(reconnectTimer);
+      reconnectTimer = null;
+    }
+    if (ws) {
+      ws.close();
+      ws = null;
+    }
+  }
+  
+  function logout() {
+    if (browser) {
+      localStorage.removeItem('kwantum_dashboard_auth');
+    }
+    disconnectWebSocket();
+    isAuthenticated = false;
+    authToken = '';
   }
   
   onMount(() => {
@@ -98,7 +130,7 @@
   });
   
   onDestroy(() => {
-    if (refreshInterval) clearInterval(refreshInterval);
+    disconnectWebSocket();
   });
 </script>
 
@@ -129,11 +161,21 @@
   <!-- Header -->
   <header class="bg-gray-900 border-b border-cyan-500 p-4">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <h1 class="text-2xl text-cyan-400">💰 Polymarket Arbitrage Dashboard</h1>
       <div class="flex items-center gap-4">
-        <span class="text-sm text-gray-400">Status: <span class="text-green-400">{stats.status}</span></span>
+        <h1 class="text-2xl text-cyan-400">💰 Polymarket Arbitrage Dashboard</h1>
+        <span class="text-xs px-2 py-1 rounded {wsStatus === 'connected' ? 'bg-green-900 text-green-400' : wsStatus === 'connecting' ? 'bg-yellow-900 text-yellow-400' : 'bg-red-900 text-red-400'}">
+          WS: {wsStatus}
+        </span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="text-sm text-gray-400">
+          Status: 
+          <span class={stats.status === 'Running' ? 'text-green-400' : 'text-red-400'}>
+            {stats.status}
+          </span>
+        </span>
         <button 
-          onclick={() => { localStorage.removeItem('kwantum_dashboard_auth'); isAuthenticated = false; }}
+          onclick={logout}
           class="text-xs text-red-400 hover:text-red-300"
         >
           Logout
@@ -179,15 +221,24 @@
         <h2 class="text-xl text-cyan-400 mb-4 flex items-center gap-2">
           <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
           Live Logs
+          {#if wsStatus === 'connected'}
+            <span class="text-xs text-green-400">(Real-time)</span>
+          {:else}
+            <span class="text-xs text-yellow-400">(Reconnecting...)</span>
+          {/if}
         </h2>
         <div class="bg-black rounded p-4 h-96 overflow-y-auto font-mono text-sm">
-          {#each logs as log}
-            <div class="mb-1">
-              <span class="text-gray-500">{log.time}</span>
-              <span class="ml-2 {log.level === 'ERROR' ? 'text-red-400' : log.level === 'INFO' ? 'text-cyan-400' : 'text-gray-400'}">{log.level}</span>
-              <span class="ml-2 text-white">{log.message}</span>
-            </div>
-          {/each}
+          {#if logs.length === 0}
+            <div class="text-gray-500 italic">Waiting for logs...</div>
+          {:else}
+            {#each logs as log}
+              <div class="mb-1">
+                <span class="text-gray-500">{log.time}</span>
+                <span class="ml-2 {log.level === 'ERROR' ? 'text-red-400' : log.level === 'INFO' ? 'text-cyan-400' : 'text-gray-400'}">{log.level}</span>
+                <span class="ml-2 text-white">{log.message}</span>
+              </div>
+            {/each}
+          {/if}
         </div>
       </div>
 
@@ -219,6 +270,12 @@
             <span class="text-gray-400">Last Scan</span>
             <span class="text-gray-300">{stats.lastScan || 'N/A'}</span>
           </div>
+          <div class="flex justify-between">
+            <span class="text-gray-400">Connection</span>
+            <span class={wsStatus === 'connected' ? 'text-green-400' : 'text-yellow-400'}>
+              {wsStatus === 'connected' ? 'Live' : wsStatus}
+            </span>
+          </div>
         </div>
         
         <div class="mt-6 pt-4 border-t border-gray-800">
@@ -248,7 +305,7 @@
     <!-- Footer -->
     <footer class="mt-8 text-center text-gray-500 text-sm">
       <p>Kwantum Tech - Polymarket Arbitrage Bot | 3-Day Paper Trading Period</p>
-      <p class="mt-1">Auto-refreshes every 5 seconds</p>
+      <p class="mt-1">Real-time updates via WebSocket | Connected to VPS: 5.75.141.76</p>
     </footer>
   </main>
 </div>
