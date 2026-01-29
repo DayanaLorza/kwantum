@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  MONGO_URI = "mongodb+srv://daybliss01_db_user:69UAWyMqJaW2qCqf@cluster0.lapvetq.mongodb.net/polymarket_bot?retryWrites=true&w=majority"
+  NODE_VERSION = "22"
