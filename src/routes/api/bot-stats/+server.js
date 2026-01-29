@@ -1,50 +1,99 @@
 import { json } from '@sveltejs/kit';
+import { MongoClient } from 'mongodb';
 
-// VPS API endpoint for bot stats
-const VPS_API_URL = 'http://5.75.141.76:8080/api/stats';
+// MongoDB connection from environment variable
+const MONGO_URI = process.env.MONGO_URI;
+const DB_NAME = 'polymarket_bot';
+
+let client = null;
+
+async function getClient() {
+  if (!client) {
+    if (!MONGO_URI) {
+      throw new Error('MONGO_URI not set');
+    }
+    client = new MongoClient(MONGO_URI, {
+      serverSelectionTimeoutMS: 8000,
+      connectTimeoutMS: 8000,
+      socketTimeoutMS: 8000
+    });
+    await client.connect();
+  }
+  return client;
+}
 
 export async function GET() {
   try {
-    // Fetch from VPS API with timeout
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 5000);
-    
-    const response = await fetch(VPS_API_URL, {
-      signal: controller.signal
-    });
-    
-    clearTimeout(timeout);
-    
-    if (!response.ok) {
-      throw new Error(`VPS API error: ${response.status}`);
+    if (!MONGO_URI) {
+      return json({
+        scans: 0,
+        markets: 494,
+        opportunities: 0,
+        trades: 0,
+        profit: 0,
+        status: 'Config Error',
+        lastScan: null,
+        recentLogs: [{
+          time: new Date().toLocaleTimeString(),
+          level: 'ERROR',
+          message: 'MONGO_URI not configured'
+        }],
+        connection: 'error'
+      });
     }
+
+    const mongoClient = await getClient();
+    const db = mongoClient.db(DB_NAME);
     
-    const data = await response.json();
+    // Get current stats
+    const stats = await db.collection('stats').findOne({ _id: 'current' }) || {
+      scans: 0,
+      markets: 494,
+      opportunities: 0,
+      trades: 0,
+      profit: 0,
+      status: 'Unknown',
+      lastScan: null
+    };
+    
+    // Get recent logs
+    const logs = await db.collection('logs')
+      .find()
+      .sort({ timestamp: -1 })
+      .limit(50)
+      .toArray();
+    
+    // Format logs for dashboard
+    const formattedLogs = logs.map(log => ({
+      time: log.timestamp ? new Date(log.timestamp).toLocaleTimeString() : 'N/A',
+      level: log.level || 'INFO',
+      message: log.message || ''
+    })).reverse();
     
     return json({
-      ...data,
+      ...stats,
+      recentLogs: formattedLogs,
       connection: 'connected',
       updatedAt: new Date().toISOString()
     });
     
   } catch (error) {
-    console.error('Dashboard API Error:', error.message);
+    console.error('MongoDB error:', error.message);
     
-    // Return fallback data
     return json({
       scans: 0,
       markets: 494,
       opportunities: 0,
       trades: 0,
       profit: 0,
-      status: 'Connecting to VPS...',
+      status: 'MongoDB Error',
       lastScan: null,
       recentLogs: [{
         time: new Date().toLocaleTimeString(),
-        level: 'INFO',
-        message: 'Connecting to bot on VPS...'
+        level: 'ERROR',
+        message: 'MongoDB: ' + error.message
       }],
-      connection: 'connecting'
-    }, { status: 200 });
+      connection: 'error'
+    });
   }
 }
