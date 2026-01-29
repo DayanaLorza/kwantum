@@ -1,8 +1,9 @@
 import { json } from '@sveltejs/kit';
 import { MongoClient } from 'mongodb';
 
-// MongoDB connection
-const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://username:password@cluster.mongodb.net/polymarket_bot';
+// MongoDB connection - try env var first, then fallback to hardcoded (for reliability)
+const MONGO_URI = process.env.MONGO_URI || 
+  'mongodb+srv://daybliss01_db_user:69UAWyMqJaW2qCqf@cluster0.lapvetq.mongodb.net/polymarket_bot?retryWrites=true&w=majority';
 const DB_NAME = 'polymarket_bot';
 
 let client = null;
@@ -16,6 +17,10 @@ async function getClient() {
 }
 
 export async function GET() {
+  // Debug: Check if env var is set
+  console.log('MONGO_URI available:', !!process.env.MONGO_URI);
+  console.log('MONGO_URI value:', process.env.MONGO_URI ? process.env.MONGO_URI.substring(0, 30) + '...' : 'NOT SET');
+  
   try {
     const mongoClient = await getClient();
     const db = mongoClient.db(DB_NAME);
