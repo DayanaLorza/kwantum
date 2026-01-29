@@ -2,10 +2,10 @@
   import { onMount, onDestroy } from 'svelte';
   import { browser } from '$app/environment';
   
-  // Private access - CHANGE THIS TOKEN!
+  // Private access - CHANGE THIS BEFORE DEPLOYING!
   let isAuthenticated = $state(false);
   let authToken = $state('');
-  const SECRET_TOKEN = 'kwantum-alpha-2026'; // TODO: Change this!
+  const SECRET_TOKEN = 'kwantum-alpha-2026'; // TODO: Change to: kwtm-dckjcecp-7917
   
   // Bot stats
   let stats = $state({
