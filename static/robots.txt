@@ -1,0 +1,7 @@
+# Allow crawling of everything by default
+User-agent: *
+Allow: /
+Disallow: /ai-agents-old
+Disallow: /api/
+
+Sitemap: https://kwantumtech.com/sitemap.xml
