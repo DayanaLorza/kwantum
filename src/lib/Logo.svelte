@@ -1,136 +1,79 @@
 <script>
   import { onMount } from 'svelte';
-  import gsap from 'gsap';
 
-  export let size = 36;
+  let { size = 24 } = $props();
 
-  let textContainer;
-  let cursorElement;
-  const originalText = "KWANTUM      TECH";
-  const originalText2 = "KWANTUM";
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&';
-  let letters = [];
+  const TEXT = 'KWANTUM';
+  const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&';
+
+  // SSR renders the settled wordmark, so crawlers and reduced-motion users
+  // never see scramble; the decode plays once on mount and stops.
+  let display = $state(TEXT);
+  let settled = $state(false);
 
   onMount(() => {
-    letters = Array.from(textContainer.children);
-    const isMobile = window.innerWidth <= 640;
-
-    function createDecoderAnimation() {
-      const tl = gsap.timeline({
-        delay: isMobile ? 0.1 : 0.3,
-        onComplete: () => {
-          gsap.delayedCall(60, () => {
-            // Hide cursor before restarting
-            cursorElement.style.animationPlayState = 'paused';
-            gsap.set(cursorElement, { opacity: 0 });
-            tl.restart();
-          });
-        }
-      });
-
-      // Keep cursor hidden during animation
-      tl.set(cursorElement, { opacity: 0 }, 0);
-
-      letters.forEach((letter, i) => {
-        const finalChar = originalText2[i] || '';
-        let proxy = { charIndex: 0 };
-
-        tl.to(proxy, {
-          charIndex: chars.length - 1,
-          duration: 1,
-          ease: "power2.inOut",
-          onUpdate: () => {
-            const randomIndex = Math.floor(Math.random() * chars.length);
-            letter.textContent = chars[randomIndex];
-          },
-          onComplete: () => {
-            letter.textContent = finalChar;
-          }
-        }, i * 0.1);
-      });
-
-      // Show cursor only after animation completes and text has settled
-      tl.to(cursorElement, {
-        opacity: 1,
-        duration: 0.3,
-        onStart: () => {
-          cursorElement.style.animationPlayState = 'running';
-        }
-      }, "+=0.5");
-
-      tl.to({}, { duration: 10 });
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      settled = true;
+      return;
     }
-
-    createDecoderAnimation();
+    const DUR = 700;   // per-letter decode time
+    const STAG = 70;   // per-letter stagger
+    const t0 = performance.now();
+    let raf;
+    const tick = (t) => {
+      let out = '';
+      let done = 0;
+      for (let i = 0; i < TEXT.length; i++) {
+        if ((t - t0 - i * STAG) / DUR >= 1) {
+          out += TEXT[i];
+          done += 1;
+        } else {
+          out += CHARS[(Math.random() * CHARS.length) | 0];
+        }
+      }
+      display = out;
+      if (done === TEXT.length) {
+        settled = true;
+        return;
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
   });
 </script>
 
-<div class="kwantum-logo">
-  <div bind:this={textContainer} class="logo-text">
-    {#each originalText.split('') as char}
-      <span class="logo-letter">{char}</span>
-    {/each}
-  </div>
-  <span bind:this={cursorElement} class="cursor">|</span>
-</div>
+<span class="wordmark" style="font-size: {size}px" aria-label="Kwantum">
+  <span aria-hidden="true">{display}</span><span
+    class="cursor"
+    class:cursor--on={settled}
+    aria-hidden="true">|</span>
+</span>
 
 <style>
-  .kwantum-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Share Tech Mono', monospace;
-  }
-
-  .logo-text {
-    display: flex;
-    gap: 2px;
-  }
-
-  .logo-letter {
-    font-size: 24px;
-    font-weight: 700;
-    color: #00ff41;
-    text-shadow:
-      0 0 2px #00ff41,
-      0 0 10px #00ff41,
-      0 0 20px #00ff41;
+  .wordmark {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--green);
+    /* the logo is one of the page's three sanctioned glow moments */
+    text-shadow: 0 0 8px rgb(0 255 65 / 0.55);
     user-select: none;
-    display: inline-block;
+    white-space: nowrap;
   }
 
   .cursor {
-    font-size: 24px;
-    font-weight: 700;
-    color: #00ff41;
-    text-shadow:
-      0 0 2px #00ff41,
-      0 0 10px #00ff41,
-      0 0 20px #00ff41;
-    margin-left: -15px;
     opacity: 0;
-    animation: blink 1s step-end infinite paused;
+    margin-left: 0.06em;
+  }
+
+  /* the blinking caret is the page's single looping animation */
+  .cursor--on {
+    animation: blink 1.1s step-end infinite;
   }
 
   @keyframes blink {
-    0%, 50% {
-      visibility: visible;
-    }
-    50.01%, 100% {
-      visibility: hidden;
-    }
-  }
-
-  @media (max-width: 640px) {
-    .kwantum-logo .logo-letter {
-      font-size: 19px;
-      text-shadow: 0 0 1px #00ff41 !important;
-    }
-
-    .kwantum-logo .cursor {
-      font-size: 19px;
-      margin-left: -12px;
-      text-shadow: 0 0 4px #00ff41 !important;
-    }
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
   }
 </style>
