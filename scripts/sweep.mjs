@@ -13,7 +13,7 @@ import puppeteer from 'puppeteer-core';
 
 const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const [base = 'http://localhost:53711', ...routeArgs] = process.argv.slice(2);
-const routes = routeArgs.length ? routeArgs : ['/', '/audit', '/ai-agents', '/apps', '/apps-v2', '/contact'];
+const routes = routeArgs.length ? routeArgs : ['/', '/audit', '/ai-agents', '/apps', '/apps-v1', '/contact'];
 
 const widths = [];
 for (let w = 320; w <= 1600; w += 20) widths.push(w);
