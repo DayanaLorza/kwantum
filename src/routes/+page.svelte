@@ -2,7 +2,7 @@
   import Seo from "$lib/Seo.svelte";
   import VideoPanel from "$lib/VideoPanel.svelte";
   import MobileActionBar from "$lib/MobileActionBar.svelte";
-  import { reveal, revealChildren, tilt, magnetic, rollNumber } from "$lib/motion.js";
+  import { reveal, revealChildren, tilt, rollNumber } from "$lib/motion.js";
   import { posterSrcset } from "$lib/videoTier.js";
   import {
     organizationSchema,
@@ -51,13 +51,13 @@
       pay: "40%",
     },
     {
-      day: "Day ~15",
+      day: "Day ~10",
       title: "Mid-build demo",
       copy: "Demos every few days along the way. The second payment lands only after you've seen it working — not before.",
       pay: "30%",
     },
     {
-      day: "Day 30",
+      day: "Day 21",
       title: "Release 1 ships",
       copy: "Deployed, documented, handed off. Production-ready core — Releases 2 and 3 add depth once it's earning.",
       pay: "30%",
@@ -98,11 +98,11 @@
   <!-- ══ 1 · HERO — tone: void ══ -->
   <section class="hero" id="hero" aria-labelledby="hero-title">
     <!-- The portrait master at its native aspect: a full-height window on the
-         right. Type lives on solid black — it never negotiates with the
-         picture; only the frosted CTA plate crosses the seam (measured). -->
+         right, cut with a sharp hairline edge. Type lives on solid black — it
+         never negotiates with the picture; only the frosted CTA plate crosses
+         the seam (measured). -->
     <div class="hero__media" aria-hidden="true">
       <VideoPanel sizes="(max-width: 640px) 100vw, 44vw" position="50% 42%" />
-      <div class="hero__seam"></div>
     </div>
 
     <div class="hero__inner">
@@ -129,7 +129,7 @@
             A 30-minute walkthrough tailored to your business — no pressure,
             just possibilities.
           </p>
-          <a class="btn btn--solid" href={calendly} use:magnetic>
+          <a class="btn btn--solid" href={calendly}>
             Book a Strategy Call
           </a>
         </div>
@@ -148,17 +148,18 @@
   <section class="proof" aria-labelledby="proof-title">
     <div class="proof__inner">
       <header class="proof__head" use:reveal>
-        <p class="eyebrow proof__eyebrow">The work</p>
-        <h2 id="proof-title">Every engagement ends in a report like this.</h2>
+        <p class="eyebrow proof__eyebrow">The AI Audit</p>
+        <h2 id="proof-title">Every AI Audit ends in a report like this.</h2>
         <p class="proof__lead">
-          A written scope going in, a working release and a scorecard coming
-          out. No adjectives — the numbers carry the argument.
+          45 minutes of your time going in, a written scorecard coming out. No
+          adjectives — the numbers carry the argument.
+          <a class="proof__link" href="/ai-audit">About the AI Audit →</a>
         </p>
       </header>
 
       <div class="report" use:reveal={{ delay: 120 }}>
         <div class="report__bar">
-          <span>ENGAGEMENT REPORT</span>
+          <span>AI AUDIT · EFFICIENCY SCORECARD</span>
           <span class="report__tag">ILLUSTRATIVE</span>
         </div>
         <ul class="report__rows">
@@ -185,10 +186,10 @@
       </div>
 
       <ul class="proof__facts" use:revealChildren={{ step: 90 }}>
-        <li>Scope in writing</li>
-        <li>Fixed price</li>
-        <li>Release 1 in 30 days</li>
-        <li>Code 100% yours</li>
+        <li>45 minutes</li>
+        <li>One written plan</li>
+        <li>5+ hours found or you don't pay</li>
+        <li>By an engineer, not a salesperson</li>
       </ul>
     </div>
   </section>
@@ -214,7 +215,7 @@
             keep your operations private.
           </p>
           <a class="services__link" href="/web-apps">
-            Scoped in writing · Release 1 in 30 days
+            Scoped in writing · Release 1 in 21 days
             <span class="services__arrows" aria-hidden="true"><i>→</i><i>→</i></span>
           </a>
         </article>
@@ -263,7 +264,11 @@
     <div class="process__inner">
       <header use:reveal>
         <p class="eyebrow proof__eyebrow">How it runs</p>
-        <h2 id="process-title">Thirty days, four milestones, zero mystery.</h2>
+        <h2 id="process-title">Twenty-one days, four milestones, zero mystery.</h2>
+        <p class="process__lead">
+          The same engagement whatever we build for you — web apps, mobile
+          apps, custom software, workflow automations.
+        </p>
       </header>
 
       <ol class="process__steps" use:revealChildren={{ step: 120 }}>
@@ -295,7 +300,7 @@
           business more efficient — 45 minutes, one written plan, 5+ hours back
           a week.
         </p>
-        <a class="btn btn--solid" href="/ai-audit" use:magnetic>Get your AI Audit</a>
+        <a class="btn btn--solid" href="/ai-audit">Get your AI Audit</a>
       </div>
       <div class="audit__stat" use:reveal={{ delay: 150 }}>
         <span class="audit__stat-label">Hours handed back</span>
@@ -331,13 +336,8 @@
     right: 0;
     width: min(44vw, 760px);
     background: var(--black);
-  }
-
-  /* seam blend only — 14% wide, fully released; it never carries type */
-  .hero__seam {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgb(0 0 0 / 0.9) 0%, transparent 14%);
+    /* sharp edge, no gradient blend — the window is cut, not faded */
+    border-left: 1px solid var(--line-strong);
   }
 
   .hero__inner {
@@ -507,6 +507,16 @@
     max-width: 44ch;
     line-height: 1.7;
     margin: 0;
+  }
+
+  .proof__link {
+    display: block;
+    width: fit-content;
+    margin-top: 0.8rem;
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration-color: #00a32b;
+    text-underline-offset: 3px;
   }
 
   .proof__facts {
@@ -807,8 +817,15 @@
     font-size: var(--text-3xl);
     font-weight: 600;
     letter-spacing: -0.025em;
-    margin: var(--sp-2) 0 var(--sp-5);
+    margin: var(--sp-2) 0 0;
     max-width: 22ch;
+  }
+
+  .process__lead {
+    color: var(--ink-dim);
+    line-height: 1.7;
+    max-width: 52ch;
+    margin: 1rem 0 var(--sp-5);
   }
 
   .process__steps {
@@ -966,16 +983,14 @@
       display: block;
     }
 
-    /* tablets down: media leaves the side and becomes a portrait band */
+    /* tablets down: media leaves the side and becomes a portrait band,
+       cut with the same sharp hairline */
     .hero__media {
       position: relative;
       width: 100%;
       height: 46vh;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .hero__seam {
-      background: linear-gradient(180deg, transparent 82%, rgb(0 0 0 / 0.85) 100%);
+      border-left: 0;
+      border-bottom: 1px solid var(--line-strong);
     }
 
     .hero__inner {

@@ -110,7 +110,7 @@ export function aiAuditServiceSchema() {
 		serviceType: 'AI Audit',
 		name: 'AI Audit by Kwantum Tech',
 		url: `${SITE_URL}/ai-audit`,
-		image: `${SITE_URL}/assets/og/og-home.png`,
+		image: `${SITE_URL}/assets/og/og-ai-audit.png`,
 		provider: { '@id': `${SITE_URL}/#organization` },
 		areaServed: 'Worldwide',
 		audience: {
@@ -148,7 +148,7 @@ export function webAppsServiceSchema() {
 				'Owner-run businesses replacing spreadsheets and disconnected tools with custom software'
 		},
 		description:
-			'Custom web apps engineered around how your business runs — a written scope, a fixed price, and a working Release 1 in 30 days, with automation and AI built in. You own 100% of the code.'
+			'Custom web apps engineered around how your business runs — a written scope, a fixed price, and a working Release 1 in 21 days, with automation and AI built in. You own 100% of the code.'
 	};
 }
 

@@ -18,7 +18,7 @@
         "Every build is fixed-priced from the written scope. Most Release 1 builds start around $7,500. If the problem doesn't justify that yet, an Automation Sprint (about half) or the AI Audit is the right first step — either credits toward a future build.",
     },
     {
-      question: "How is 30 days possible?",
+      question: "How is 21 days possible?",
       answer:
         "Release 1 is deliberately scoped: the production-ready core, not every feature you'll ever want. A senior engineering team on a modern component stack, with AI-assisted development — no handoffs, no bloated agency process.",
     },
@@ -290,8 +290,8 @@
 </script>
 
 <Seo
-  title="Custom Web Apps in 30 Days | Kwantum Tech"
-  description="Custom web apps by Kwantum Tech: a written scope, a fixed price, and a working Release 1 in 30 days — automation and AI built in. You own 100% of the code."
+  title="Custom Web Apps in 21 Days | Kwantum Tech"
+  description="Custom web apps by Kwantum Tech: a written scope, a fixed price, and a working Release 1 in 21 days — automation and AI built in. You own 100% of the code."
   keywords={[
     "custom web app development",
     "custom web application development",
@@ -325,7 +325,7 @@
         <h1>Built to <span class="draw">your spec.</span></h1>
         <p class="hero__lead">
           A custom web app engineered around how your business actually
-          runs — <strong>automation inside, live in 30 days</strong>. That's it
+          runs — <strong>automation inside, live in 21 days</strong>. That's it
           on the right, working. Click around.
         </p>
         <div class="hero__ctas">
@@ -578,7 +578,7 @@
     <div class="tl__inner">
       <div class="sheet-head">
         <span class="no">SHEET 02</span>
-        <h2>The 30-day line.</h2>
+        <h2>The 21-day line.</h2>
         <span class="dim">DIM IN DAYS · NTS</span>
       </div>
       <div class="tl__track">
@@ -587,8 +587,8 @@
           <line class="fill" id="tlFill" x1="0" y1="5" x2="1000" y2="5" pathLength="1000"/>
         </svg>
         <div class="tl__ticks">
-          {#each Array(31) as _, d}
-            <i style="left: {(d / 30) * 100}%; {d % 5 === 0 ? 'height: 14px;' : ''}"></i>
+          {#each Array(22) as _, d}
+            <i style="left: {(d / 21) * 100}%; {d % 7 === 0 ? 'height: 14px;' : ''}"></i>
           {/each}
         </div>
         <div class="tl__nodes">
@@ -610,7 +610,7 @@
           </div>
           <div class="node">
             <div class="node__dot"></div>
-            <span class="node__day">Day ~15</span>
+            <span class="node__day">Day ~10</span>
             <h3>Mid-build demo</h3>
             <p>Demos every few days along the way. The second payment lands only
             after you've seen it working — not before.</p>
@@ -618,7 +618,7 @@
           </div>
           <div class="node">
             <div class="node__dot"></div>
-            <span class="node__day">Day 30</span>
+            <span class="node__day">Day 21</span>
             <h3>Release 1 ships</h3>
             <p>Deployed, documented, handed off. Production-ready core —
             Releases 2 and 3 add depth once it's earning.</p>
@@ -652,7 +652,7 @@
         <div class="door door--active">
           <span class="door__tag">You are here</span>
           <h3>Web Apps</h3>
-          <p>A custom web app scoped in writing and shipped in 30 days —
+          <p>A custom web app scoped in writing and shipped in 21 days —
           automation and AI included.</p>
         </div>
         <div class="door">
@@ -1519,7 +1519,7 @@
   .walk__appcol { position: relative; }
   .walk__sticky { position: sticky; top: 12vh; }
 
-  /* ── 30-day line ── */
+  /* ── 21-day line ── */
   .tl { padding: 7rem 7vw; }
   .tl__inner { max-width: 1280px; margin: 0 auto; }
   .tl__track { position: relative; margin-top: 4.5rem; padding-bottom: 1rem; }
@@ -1648,7 +1648,7 @@
     .app__content { overflow-x: auto; }
     .dash { grid-template-columns: 1fr; }
 
-    /* The 30-day line becomes a vertical timeline on mobile: the horizontal
+    /* The 21-day line becomes a vertical timeline on mobile: the horizontal
        ruler makes no sense stacked, so hide it and connect the dots with a
        left rail instead. */
     .tl { padding: 4rem 6vw; }

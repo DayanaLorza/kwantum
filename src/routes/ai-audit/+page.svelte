@@ -72,7 +72,7 @@
 <Seo
   title="AI Audit | Automate Your To-Do List | Kwantum Tech"
   description="The AI Audit finds repetitive tasks worth automating so your business runs more efficiently. 45 minutes, one written plan, 5+ hours back a week."
-  image="/assets/og/og-home.png"
+  image="/assets/og/og-ai-audit.png"
   imageAlt="Kwantum Tech AI Audit — the efficiency scorecard report showing hours handed back"
   keywords={[
     "AI audit",
