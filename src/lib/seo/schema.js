@@ -11,8 +11,8 @@ export const organizationSchema = {
 	name: 'Kwantum Tech',
 	legalName: 'Kwantum Consulting LLC',
 	url: SITE_URL,
-	logo: `${SITE_URL}/og-image.png`,
-	image: `${SITE_URL}/og-image.png`,
+	logo: `${SITE_URL}/assets/og/og-home.png`,
+	image: `${SITE_URL}/assets/og/og-home.png`,
 	description:
 		'Kwantum Tech is a premium software engineering and IT consulting firm building AI employees, custom web and mobile applications, secure infrastructure, and automation for high-performance teams.',
 	slogan: 'Quantum-grade engineering for elite ambitions.',
@@ -48,7 +48,7 @@ export const professionalServiceSchema = {
 	'@id': `${SITE_URL}/#service`,
 	name: 'Kwantum Tech',
 	url: SITE_URL,
-	image: `${SITE_URL}/og-image.png`,
+	image: `${SITE_URL}/assets/og/og-home.png`,
 	description:
 		'Premium software engineering and IT consulting: custom web & mobile apps, AI bots and agents, infrastructure architecture, performance optimization, and security.',
 	parentOrganization: { '@id': `${SITE_URL}/#organization` },
@@ -75,7 +75,7 @@ export function aiEmployeesServiceSchema(offerings) {
 		serviceType: 'AI Employees',
 		name: 'AI Employees by Kwantum Tech',
 		url: `${SITE_URL}/ai-agents`,
-		image: `${SITE_URL}/og-ai-employees.png`,
+		image: `${SITE_URL}/assets/og/og-ai-employees.png`,
 		provider: { '@id': `${SITE_URL}/#organization` },
 		areaServed: 'Worldwide',
 		audience: {
@@ -110,7 +110,7 @@ export function aiAuditServiceSchema() {
 		serviceType: 'AI Audit',
 		name: 'AI Audit by Kwantum Tech',
 		url: `${SITE_URL}/ai-audit`,
-		image: `${SITE_URL}/og-ai-audit.png`,
+		image: `${SITE_URL}/assets/og/og-home.png`,
 		provider: { '@id': `${SITE_URL}/#organization` },
 		areaServed: 'Worldwide',
 		audience: {
@@ -139,7 +139,7 @@ export function webAppsServiceSchema() {
 		serviceType: 'Custom Web App Development',
 		name: 'Custom Web Apps by Kwantum Tech',
 		url: `${SITE_URL}/web-apps`,
-		image: `${SITE_URL}/og-image.png`,
+		image: `${SITE_URL}/assets/og/og-home.png`,
 		provider: { '@id': `${SITE_URL}/#organization` },
 		areaServed: 'Worldwide',
 		audience: {

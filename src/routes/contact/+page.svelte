@@ -242,7 +242,9 @@
   .contact__backdrop {
     position: absolute;
     inset: 0;
-    opacity: 0.5;
+    /* 0.42, not 0.5: at 0.5 the field's brightest node under the header lead
+       measured 4.42:1 worst-pixel (needs 4.5) — see README contrast table */
+    opacity: 0.42;
     z-index: 0;
   }
 

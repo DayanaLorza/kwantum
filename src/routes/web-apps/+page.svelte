@@ -722,7 +722,7 @@
         </div>
         <div class="tb__cell tb__cell--desc"><label for="tb-message">Scope description</label><textarea id="tb-message" name="message" required placeholder="Describe the business and the thing you wish existed — the spreadsheet mess, the manual scheduling, the portal your clients keep asking for..."></textarea></div>
         <div class="tb__cell tb__cell--submit">
-          <span class="tb__meta">KWANTUM TECH · WEB APPS<br/>SCOPE IN WRITING · FIXED PRICE · CODE 100% YOURS</span>
+          <span class="tb__meta"><span>KWANTUM TECH · WEB APPS</span> <span>Scope in writing · Fixed price · Code 100% yours</span></span>
           <div class="tb__actions">
             <Turnstile siteKey={turnstileSiteKey} onToken={(token) => (turnstileToken = token)} />
             <button class="btn btn--solid" type="submit" disabled={inquirySending}>
@@ -1618,6 +1618,10 @@
   .tb__cell select option { background: #0a1018; color: var(--v2-text); }
   .tb__cell input:focus, .tb__cell select:focus, .tb__cell textarea:focus { border-bottom-color: var(--green); }
   .tb__cell textarea { resize: vertical; min-height: 84px; line-height: 1.6; }
+  .tb__meta > span {
+    display: block;
+  }
+
   .tb__meta { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.2em; color: rgba(223, 233, 226, 0.4); text-transform: uppercase; line-height: 2; }
   .tb__actions { display: grid; gap: 0.8rem; justify-items: end; }
   .tb__success { text-align: center; color: var(--green); font-weight: 600; margin: 1.2rem 0 0; }

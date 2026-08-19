@@ -105,7 +105,7 @@
 <Seo
   title="AI Employees for Real Estate | Kwantum Tech"
   description="Hire AI employees that never clock out. They qualify leads, follow up, and book calls 24/7 — built for you."
-  image="/og-ai-employees.png"
+  image="/assets/og/og-ai-employees.png"
   imageAlt="Kwantum Tech AI Employees — Lead Response, Client Support, and 24/7 Automation"
   keywords={[
     "AI employees",
