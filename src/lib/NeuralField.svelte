@@ -141,13 +141,13 @@
   }
 
   .node--cyan {
-    fill: #00e5ff;
-    filter: drop-shadow(0 0 4px rgba(0, 229, 255, 0.8));
+    fill: #e0ffe0;
+    filter: drop-shadow(0 0 4px rgba(224, 255, 224, 0.7));
   }
 
   .node--violet {
-    fill: #b66bff;
-    filter: drop-shadow(0 0 4px rgba(182, 107, 255, 0.8));
+    fill: #00b32e;
+    filter: drop-shadow(0 0 4px rgba(0, 179, 46, 0.8));
   }
 
   .edge {
@@ -161,10 +161,10 @@
     stroke: #00ff41;
   }
   .edge--cyan {
-    stroke: #00e5ff;
+    stroke: #e0ffe0;
   }
   .edge--violet {
-    stroke: #b66bff;
+    stroke: #00b32e;
   }
 
   .signal {
@@ -177,12 +177,12 @@
     filter: drop-shadow(0 0 6px #00ff41);
   }
   .signal--cyan {
-    fill: #8af3ff;
-    filter: drop-shadow(0 0 6px #00e5ff);
+    fill: #ffffff;
+    filter: drop-shadow(0 0 6px #e0ffe0);
   }
   .signal--violet {
-    fill: #d6b0ff;
-    filter: drop-shadow(0 0 6px #b66bff);
+    fill: #7dffa6;
+    filter: drop-shadow(0 0 6px #00b32e);
   }
 
   @keyframes node-pulse {

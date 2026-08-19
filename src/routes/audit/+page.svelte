@@ -72,7 +72,7 @@
 <Seo
   title="AI Audit | Automate Your To-Do List | Kwantum Tech"
   description="The AI Audit finds repetitive tasks worth automating so your business runs more efficiently. 45 minutes, one written plan, 5+ hours back a week."
-  image="/og-ai-audit.png"
+  image="/assets/og/og-ai-audit.png"
   imageAlt="Kwantum Tech AI Audit — the efficiency scorecard report showing hours handed back"
   keywords={[
     "AI audit",
@@ -89,7 +89,7 @@
     aiAuditServiceSchema(),
     breadcrumbSchema([
       { name: "Home", path: "/" },
-      { name: "AI Audit", path: "/ai-audit" },
+      { name: "AI Audit", path: "/audit" },
     ]),
   ]}
 />
@@ -170,11 +170,12 @@
   </section>
 
   <!-- ── 1c. THE OFFER PATH (ladder) ── -->
-  <section class="ladder section">
-    <header class="section__head">
+  <section class="ladder band band--paper">
+    <div class="band__inner">
+    <header class="band__head">
       <p class="eyebrow">One Audit. Three Doors.</p>
       <h2>Start small. Scale as it pays off.</h2>
-      <p class="section__sub">
+      <p class="band__sub">
         The audit is the front door — it's a menu, not a staircase. Take only the
         next step that earns its place.
       </p>
@@ -200,14 +201,16 @@
       Already know you want a role staffed 24/7?
       <a href="/ai-agents">Meet the AI Employees →</a>
     </p>
+    </div>
   </section>
 
   <!-- ── 2. THE PROBLEM ── -->
-  <section class="problem section">
-    <header class="section__head">
+  <section class="problem band band--panel">
+    <div class="band__inner">
+    <header class="band__head">
       <p class="eyebrow">Where the Time Goes</p>
       <h2>The busywork adding up in the background.</h2>
-      <p class="section__sub">
+      <p class="band__sub">
         It rarely feels like much in the moment — a few minutes here and there.
         Across a whole week, it's the time your business never gets back.
       </p>
@@ -239,14 +242,16 @@
         </p>
       </article>
     </div>
+    </div>
   </section>
 
   <!-- ── 3. HOW IT WORKS ── -->
-  <section id="how-it-works" class="how section">
-    <header class="section__head">
+  <section id="how-it-works" class="how band band--paper">
+    <div class="band__inner">
+    <header class="band__head">
       <p class="eyebrow">Simple From the First Message</p>
       <h2>How the audit works.</h2>
-      <p class="section__sub">Three steps from first message to a written plan.</p>
+      <p class="band__sub">Three steps from first message to a written plan.</p>
     </header>
     <div class="how__grid">
       <article class="step">
@@ -273,6 +278,7 @@
           You keep the plan either way, and only move as far as makes sense.
         </p>
       </article>
+    </div>
     </div>
   </section>
 
@@ -347,114 +353,29 @@
     overflow: hidden;
   }
 
-  .section {
-    padding: 5.5rem 7vw;
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-
-  .section__head {
-    max-width: 720px;
-    margin: 0 auto 3rem;
-    text-align: center;
-  }
-
-  .section__sub {
-    color: rgba(224, 255, 224, 0.75);
-    line-height: 1.7;
-    margin: 0.8rem 0 0;
-  }
-
-  .eyebrow {
-    text-transform: uppercase;
-    letter-spacing: 0.28em;
-    font-weight: 600;
-    color: var(--primary);
-    margin: 0 0 1rem;
-    font-size: 0.72rem;
-  }
-
   h1 {
     font-size: clamp(2.6rem, 4vw + 1rem, 4.4rem);
-    line-height: 1.04;
-    letter-spacing: -0.04em;
+    font-weight: 600;
     margin: 0 0 1.4rem;
-    color: #ffffff;
-  }
-
-  h2 {
-    font-size: clamp(1.9rem, 1.8vw + 1rem, 2.8rem);
-    line-height: 1.12;
-    letter-spacing: -0.03em;
-    margin: 0;
-    color: #ffffff;
-    text-shadow: 0 0 12px rgba(0, 255, 65, 0.35);
   }
 
   h3 {
-    color: #ffffff;
+    font-size: var(--text-xl);
+    font-weight: 600;
     margin: 0 0 0.6rem;
   }
 
+  /* the page's one highlighted word — and its one glow */
   .glow {
-    color: var(--primary);
-    text-shadow: 0 0 34px rgba(0, 255, 65, 0.45);
+    color: var(--green);
+    text-shadow: var(--glow);
   }
 
-  /* ── Buttons ── */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.85rem 1.8rem;
-    border-radius: 999px;
-    border: 1px solid transparent;
-    text-decoration: none;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    cursor: pointer;
-    font-family: inherit;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease,
-      border-color 0.2s ease, color 0.2s ease;
-  }
-
-  .btn--solid {
-    background: var(--primary);
-    color: #000000;
-    border-color: var(--primary);
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.92rem;
-  }
-
-  .btn--solid:hover {
-    background: var(--secondary);
-    border-color: var(--secondary);
-    box-shadow: 0 0 22px rgba(0, 255, 65, 0.45);
-    transform: translateY(-2px);
-  }
-
-  .btn--solid:disabled {
-    cursor: wait;
-    opacity: 0.65;
-  }
-
-  .btn--ghost {
-    background: transparent;
-    color: var(--primary);
-    border-color: rgba(0, 255, 65, 0.4);
-  }
-
-  .btn--ghost:hover {
-    border-color: var(--primary);
-    box-shadow: 0 0 16px rgba(0, 255, 65, 0.3);
-  }
-
-  /* ── 1. Hero ── */
+  /* ── 1. Hero — tone: void ── */
   .ahero {
     position: relative;
-    padding: calc(6rem - 20px) 7vw 5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: var(--sp-section) var(--gutter) var(--sp-6);
+    border-bottom: 1px solid var(--line);
     overflow: hidden;
   }
 
@@ -468,9 +389,9 @@
     transform: translate(-50%, -50%);
     background: radial-gradient(
       circle,
-      rgba(0, 255, 65, 0.16) 0%,
-      rgba(0, 255, 65, 0.05) 34%,
-      rgba(0, 0, 0, 0) 66%
+      rgb(0 255 65 / 0.13) 0%,
+      rgb(0 255 65 / 0.04) 34%,
+      transparent 66%
     );
     pointer-events: none;
     z-index: 0;
@@ -488,32 +409,36 @@
     row-gap: 2.5rem;
   }
 
+  .ahero__copy .eyebrow {
+    margin-bottom: var(--sp-2);
+  }
+
   .subhead {
     font-size: clamp(1.15rem, 0.6vw + 0.95rem, 1.45rem);
     font-weight: 600;
     line-height: 1.4;
     letter-spacing: -0.01em;
-    color: var(--primary);
+    color: var(--green);
     max-width: 50ch;
     margin: 0 0 1.4rem;
     text-wrap: balance;
   }
 
   .subhead strong {
-    color: #ffffff;
-    font-weight: 800;
+    color: var(--text-hi);
+    font-weight: 700;
   }
 
   .lead {
-    font-size: clamp(1.05rem, 0.6vw + 0.9rem, 1.3rem);
+    font-size: var(--text-lg);
     line-height: 1.6;
-    color: rgba(224, 255, 224, 0.88);
+    color: var(--text);
     max-width: 56ch;
     margin: 0 0 2.2rem;
   }
 
   .lead strong {
-    color: #ffffff;
+    color: var(--text-hi);
   }
 
   .ahero__cta {
@@ -524,13 +449,14 @@
 
   .ahero__note {
     margin: 1.6rem 0 0;
-    font-size: 0.82rem;
-    letter-spacing: 0.1em;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(224, 255, 224, 0.5);
+    color: var(--text-dim);
   }
 
-  /* ── The report artifact ── */
+  /* ── The report artifact (white card in the dark hero) ── */
   .ahero__report {
     justify-self: center;
     width: 100%;
@@ -541,8 +467,8 @@
     background: #ffffff;
     border-radius: 22px;
     padding: 30px 32px;
-    color: #0a0a0c;
-    box-shadow: 0 0 80px rgba(0, 255, 65, 0.16);
+    color: var(--ink);
+    box-shadow: 0 30px 80px -30px rgb(0 0 0 / 0.9);
   }
 
   .report__head {
@@ -556,24 +482,24 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 0.78rem;
-    font-weight: 700;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
     letter-spacing: 0.16em;
-    color: #111;
+    color: var(--ink);
   }
 
   .report__mark {
     width: 12px;
     height: 12px;
     flex: none;
-    background: var(--primary);
+    background: var(--green);
     border-radius: 3px;
     display: block;
   }
 
   .report__tag {
+    font-family: var(--font-mono);
     font-size: 0.58rem;
-    font-weight: 600;
     letter-spacing: 0.16em;
     color: #8a8a8a;
     border: 1px solid #dcdcdc;
@@ -597,8 +523,8 @@
 
   .report__col {
     text-align: center;
+    font-family: var(--font-mono);
     font-size: 0.62rem;
-    font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
   }
@@ -608,7 +534,7 @@
   }
 
   .report__col--dark {
-    color: #0a0a0c;
+    color: var(--ink);
   }
 
   .report__row {
@@ -637,35 +563,36 @@
     width: 42px;
     height: 42px;
     border-radius: 11px;
+    font-family: var(--font-mono);
     font-size: 1.05rem;
-    font-weight: 800;
   }
 
+  /* brand-kit failing-grade tones: D orange, C yellow, F red */
   .grade--orange {
     background: #fff1e6;
-    color: #ff8c1a;
+    color: #b35800;
   }
 
   .grade--yellow {
     background: #fffae0;
-    color: #c99a00;
+    color: #8a6d00;
   }
 
   .grade--red {
     background: #ffe9e7;
-    color: #ff3b30;
+    color: #c22e24;
   }
 
+  /* green metric on a black chip — never green on white */
   .grade--pass {
     width: 54px;
-    background: #000000;
-    color: var(--primary);
-    text-shadow: 0 0 16px rgba(0, 255, 65, 0.6);
+    background: var(--black);
+    color: var(--green);
   }
 
   .report__result {
     margin-top: 20px;
-    background: #000000;
+    background: var(--black);
     border-radius: 14px;
     padding: 18px 22px;
     display: flex;
@@ -675,39 +602,38 @@
   }
 
   .report__result-label {
-    font-size: 0.68rem;
-    font-weight: 600;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
     letter-spacing: 0.18em;
-    color: rgba(224, 255, 224, 0.7);
+    color: rgb(224 255 224 / 0.7);
     text-transform: uppercase;
   }
 
   .report__result-value {
+    font-family: var(--font-display);
     font-size: 1.9rem;
-    font-weight: 800;
-    color: var(--primary);
+    font-weight: 700;
+    color: var(--green);
     line-height: 1;
-    text-shadow: 0 0 26px rgba(0, 255, 65, 0.4);
     white-space: nowrap;
   }
 
   .report__note {
     margin: 12px 2px 0;
     font-size: 0.76rem;
-    font-weight: 500;
     color: #6a6a6a;
     line-height: 1.5;
   }
 
   .report__note strong {
-    color: #111;
+    color: var(--ink);
     font-weight: 700;
   }
 
   /* ── 1b. Trust strip ── */
   .trust {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 1.6rem 7vw;
+    border-bottom: 1px solid var(--line);
+    padding: 1.6rem var(--gutter);
   }
 
   .trust__row {
@@ -720,9 +646,11 @@
     justify-content: center;
     align-items: center;
     gap: 0.6rem 1.4rem;
-    font-size: 0.98rem;
-    font-weight: 500;
-    color: rgba(224, 255, 224, 0.72);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
   }
 
   .trust__row li {
@@ -733,81 +661,17 @@
   .trust__row li + li::before {
     content: "·";
     margin-right: 1.4rem;
-    color: rgba(224, 255, 224, 0.32);
+    color: rgb(0 255 65 / 0.55);
   }
 
-  /* ── 2. Problem ── */
-  .problem__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .leak {
-    background: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 18px;
-    padding: 2rem 1.8rem;
-  }
-
-  .leak__num {
-    display: block;
-    font-family: "Share Tech Mono", monospace;
-    color: var(--primary);
-    letter-spacing: 0.2em;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-  }
-
-  .leak p {
-    color: rgba(224, 255, 224, 0.78);
-    line-height: 1.7;
-    margin: 0;
-  }
-
-  /* ── How it works ── */
-  .how__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .step {
-    position: relative;
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    padding: 2.4rem 1.8rem 2rem;
-  }
-
-  .step__num {
-    display: grid;
-    place-items: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--primary);
-    color: #000000;
-    font-weight: 700;
-    font-size: 1.3rem;
-    margin-bottom: 1.2rem;
-    box-shadow: 0 0 18px rgba(0, 255, 65, 0.45);
-  }
-
-  .step p {
-    color: rgba(224, 255, 224, 0.78);
-    line-height: 1.7;
-    margin: 0;
-  }
-
-  /* ── 6. The ladder ── */
+  /* ── Ladder — tone: paper ── */
   .ladder__track {
     list-style: none;
     margin: 0;
     padding: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: var(--sp-3);
     position: relative;
   }
 
@@ -820,9 +684,9 @@
     height: 2px;
     background: linear-gradient(
       90deg,
-      rgba(0, 255, 65, 0.55),
-      rgba(0, 255, 65, 0.25),
-      rgba(0, 255, 65, 0.08)
+      rgb(11 19 13 / 0.5),
+      rgb(11 19 13 / 0.2),
+      rgb(11 19 13 / 0.08)
     );
     z-index: 0;
   }
@@ -830,8 +694,8 @@
   .rung {
     position: relative;
     z-index: 1;
-    background: rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #ffffff;
+    border: 1px solid var(--line-ink);
     border-radius: 20px;
     padding: 2rem 1.8rem;
   }
@@ -844,37 +708,36 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: #0a0a0c;
-    border: 2px solid rgba(0, 255, 65, 0.4);
+    background: var(--tone-paper);
+    border: 2px solid rgb(11 19 13 / 0.3);
   }
 
   .rung--active {
-    border-color: rgba(0, 255, 65, 0.45);
-    box-shadow: 0 0 30px rgba(0, 255, 65, 0.14);
+    border-color: var(--ink);
+    box-shadow: 0 18px 40px -24px rgb(11 19 13 / 0.5);
   }
 
   .rung--active::before {
-    background: var(--primary);
-    border-color: var(--primary);
-    box-shadow: 0 0 14px rgba(0, 255, 65, 0.6);
+    background: var(--green);
+    border-color: var(--ink);
   }
 
   .rung__tag {
     display: inline-block;
-    font-family: "Share Tech Mono", monospace;
+    font-family: var(--font-mono);
     font-size: 0.64rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: rgba(224, 255, 224, 0.5);
+    color: var(--ink-faint);
     margin-bottom: 0.8rem;
   }
 
   .rung--active .rung__tag {
-    color: var(--primary);
+    color: var(--ink);
   }
 
   .rung p {
-    color: rgba(224, 255, 224, 0.78);
+    color: var(--ink-dim);
     line-height: 1.65;
     margin: 0;
   }
@@ -882,28 +745,87 @@
   .ladder__link {
     text-align: center;
     margin: 2.6rem 0 0;
-    color: rgba(224, 255, 224, 0.75);
+    color: var(--ink-dim);
     font-size: 1.02rem;
   }
 
   .ladder__link a {
-    color: var(--primary);
+    color: var(--ink);
     font-weight: 600;
-    text-decoration: none;
+    text-decoration-color: #00a32b;
+    text-underline-offset: 3px;
     white-space: nowrap;
   }
 
-  .ladder__link a:hover {
-    text-shadow: 0 0 12px rgba(0, 255, 65, 0.5);
+  /* ── Problem — tone: dark panel ── */
+  .problem__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-3);
   }
 
-  /* ── Final CTA ── */
+  .leak {
+    background: rgb(0 0 0 / 0.45);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 2rem 1.8rem;
+  }
+
+  .leak__num {
+    display: block;
+    font-family: var(--font-mono);
+    color: rgb(0 255 65 / 0.7);
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+    font-size: var(--text-sm);
+  }
+
+  .leak p {
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ── How it works — tone: paper ── */
+  .how__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-3);
+  }
+
+  .step {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid var(--line-ink);
+    border-radius: 20px;
+    padding: 2.4rem 1.8rem 2rem;
+  }
+
+  .step__num {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--black);
+    color: var(--green);
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .step p {
+    color: var(--ink-dim);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ── Final CTA — tone: void ── */
   .final {
     position: relative;
-    margin-top: 2rem;
-    padding: 6rem 7vw 5rem;
+    padding: var(--sp-section) var(--gutter) var(--sp-6);
     text-align: center;
-    border-top: 1px solid rgba(0, 255, 65, 0.2);
+    border-top: 1px solid var(--line);
     overflow: hidden;
   }
 
@@ -912,8 +834,8 @@
     inset: 0;
     background: radial-gradient(
       circle at bottom,
-      rgba(0, 255, 140, 0.18),
-      rgba(0, 0, 0, 0.95) 60%
+      rgb(0 255 65 / 0.1),
+      transparent 60%
     );
     z-index: 0;
   }
@@ -925,10 +847,16 @@
     margin: 0 auto;
   }
 
+  .final__inner h2 {
+    font-size: var(--text-3xl);
+    font-weight: 600;
+    margin: var(--sp-2) 0 0;
+  }
+
   .final__lead {
-    font-size: 1.15rem;
+    font-size: var(--text-lg);
     line-height: 1.65;
-    color: rgba(224, 255, 224, 0.85);
+    color: var(--text);
     margin: 1.2rem auto 2.2rem;
     max-width: 560px;
   }
@@ -938,8 +866,9 @@
     align-items: center;
     gap: 1rem;
     margin: 3rem 0 2rem;
-    color: rgba(224, 255, 224, 0.45);
-    font-size: 0.8rem;
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
     letter-spacing: 0.15em;
     text-transform: uppercase;
   }
@@ -949,10 +878,10 @@
     content: "";
     flex: 1;
     height: 1px;
-    background: rgba(255, 255, 255, 0.12);
+    background: var(--line);
   }
 
-  /* ── Lead form ── */
+  /* ── Lead form (dark ground) ── */
   .lead-form {
     display: grid;
     gap: 1rem;
@@ -977,40 +906,42 @@
 
   .lead-form__field {
     display: grid;
-    gap: 0.4rem;
+    gap: 0.45rem;
   }
 
   .lead-form__field label {
-    font-size: 0.76rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    color: var(--primary);
-    font-weight: 600;
+    color: var(--text-dim);
   }
 
   .lead-form__field input,
   .lead-form__field textarea {
-    background: rgba(0, 255, 65, 0.07);
-    border: 1px solid rgba(0, 255, 65, 0.3);
+    background: rgb(224 255 224 / 0.05);
+    border: 1px solid var(--line-strong);
     border-radius: 10px;
     padding: 0.75rem 1rem;
     color: var(--text);
-    font-family: inherit;
+    font-family: var(--font-body);
     font-size: 0.95rem;
-    outline: none;
     width: 100%;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color var(--dur-micro) var(--ease-out),
+                box-shadow var(--dur-micro) var(--ease-out),
+                background-color 9999s;  /* defuses Chrome's opaque autofill paint */
   }
 
   .lead-form__field input::placeholder,
   .lead-form__field textarea::placeholder {
-    color: rgba(224, 255, 224, 0.4);
+    color: var(--text-faint);
   }
 
-  .lead-form__field input:focus,
-  .lead-form__field textarea:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(0, 255, 65, 0.15);
+  .lead-form__field input:focus-visible,
+  .lead-form__field textarea:focus-visible {
+    outline: none;
+    border-color: var(--green);
+    box-shadow: 0 2px 0 0 var(--green);
   }
 
   .lead-form__field textarea {
@@ -1018,21 +949,13 @@
     min-height: 90px;
   }
 
-  .lead-form .btn--solid {
-    width: 100%;
+  .lead-form__submit {
+    justify-self: start;
     margin-top: 0.4rem;
   }
 
-  .lead-form .btn--solid.lead-form__submit {
-    display: inline-flex;
-    width: auto !important;
-    max-width: max-content;
-    justify-self: start;
-    padding: 0.78rem 1.5rem;
-  }
-
   .lead-form__success {
-    color: var(--primary);
+    color: var(--green);
     font-weight: 600;
     margin: 0.2rem 0 0;
   }
@@ -1079,12 +1002,8 @@
   }
 
   @media (max-width: 640px) {
-    .section {
-      padding: 4rem 6vw;
-    }
-
     .ahero {
-      padding: 4rem 6vw 3.5rem;
+      padding: var(--sp-5) var(--gutter) var(--sp-4);
     }
 
     h1 {
@@ -1097,10 +1016,6 @@
 
     .report__label {
       font-size: 0.9rem;
-    }
-
-    .final {
-      padding: 4.5rem 6vw 4rem;
     }
 
     .ahero__cta .btn {

@@ -1,3 +1,9 @@
 # Redirect www to non-www
 https://www.kwantumtech.com/* https://kwantumtech.com/:splat 301!
 http://www.kwantumtech.com/* https://kwantumtech.com/:splat 301!
+
+# Legacy route renames (2026-08): nav-aligned URLs
+/web-apps     /apps   301
+/web-apps-v2  /apps   301
+/apps-v2      /apps   301
+/ai-audit     /audit  301

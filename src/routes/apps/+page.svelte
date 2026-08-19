@@ -18,7 +18,7 @@
         "Every build is fixed-priced from the written scope. Most Release 1 builds start around $7,500. If the problem doesn't justify that yet, an Automation Sprint (about half) or the AI Audit is the right first step — either credits toward a future build.",
     },
     {
-      question: "How is 30 days possible?",
+      question: "How is 21 days possible?",
       answer:
         "Release 1 is deliberately scoped: the production-ready core, not every feature you'll ever want. A senior engineering team on a modern component stack, with AI-assisted development — no handoffs, no bloated agency process.",
     },
@@ -240,7 +240,7 @@
         gsap.to("#stamp", { opacity: 1, scale: 1, rotate: -8, duration: 0.45, ease: "power4.in",
           scrollTrigger: { trigger: ".stampzone", start: "top 55%" } });
 
-        gsap.utils.toArray(".sheet-head, .door, .note").forEach((el) => {
+        gsap.utils.toArray(".sheet-head, .door, .note, .scopecard").forEach((el) => {
           gsap.from(el, { opacity: 0, y: 22, duration: 0.6, ease: "power3.out",
             scrollTrigger: { trigger: el, start: "top 88%" } });
         });
@@ -290,10 +290,12 @@
 </script>
 
 <Seo
-  title="Custom Web Apps in 30 Days | Kwantum Tech"
-  description="Custom web apps by Kwantum Tech: a written scope, a fixed price, and a working Release 1 in 30 days — automation and AI built in. You own 100% of the code."
+  title="Apps & Custom Software in 21 Days | Kwantum Tech"
+  description="Web apps, mobile apps, custom software, and automations by Kwantum Tech: a written scope, a fixed price, and a working Release 1 in 21 days. You own 100% of the code."
   keywords={[
     "custom web app development",
+    "custom mobile app development",
+    "workflow automation",
     "custom web application development",
     "custom software for small business",
     "fixed price web app development",
@@ -309,7 +311,7 @@
     faqSchema(faqs),
     breadcrumbSchema([
       { name: "Home", path: "/" },
-      { name: "Web Apps", path: "/web-apps" },
+      { name: "Apps", path: "/apps" },
     ]),
   ]}
 />
@@ -321,12 +323,13 @@
   <section class="v2hero">
     <div class="v2hero__inner">
       <div class="hero__copy">
-        <p class="hero__eyebrow">Kwantum Tech <span class="sep">·</span> DWG NO. KT-26 <span class="sep">·</span> Web Apps</p>
+        <p class="hero__eyebrow">Kwantum Tech <span class="sep">·</span> DWG NO. KT-26 <span class="sep">·</span> Apps <span class="sep">·</span> REV B</p>
         <h1>Built to <span class="draw">your spec.</span></h1>
         <p class="hero__lead">
-          A custom web app engineered around how your business actually
-          runs — <strong>automation inside, live in 30 days</strong>. That's it
-          on the right, working. Click around.
+          Web apps, mobile apps, custom software, automations — engineered
+          around how your business actually runs,
+          <strong>live in 21 days</strong>. That's one working on the right.
+          Click around.
         </p>
         <div class="hero__ctas">
           <a class="btn btn--solid" href="#titleblock">Book a Scoping Call</a>
@@ -524,6 +527,45 @@
     </div>
   </section>
 
+  <!-- ══════════ SHEET 00 — SCOPE OF WORK ══════════ -->
+  <section class="scope">
+    <div class="scope__inner">
+      <div class="sheet-head">
+        <span class="no">SHEET 00</span>
+        <h2>Scope of work.</h2>
+        <span class="dim">SELECT ONE OR COMBINE · U.N.O.</span>
+      </div>
+      <div class="scope__grid">
+        <article class="scopecard">
+          <span class="scopecard__tag">TYPE A · WEB APPS</span>
+          <h3>The browser is the office.</h3>
+          <p>Dashboards, portals, booking systems, internal tools — the
+          software your business runs on, reachable from anywhere.</p>
+        </article>
+        <article class="scopecard">
+          <span class="scopecard__tag">TYPE B · MOBILE APPS</span>
+          <h3>Your operation, pocketable.</h3>
+          <p>iOS and Android from one codebase — for your crew in the field
+          and the clients who expect an app, not a bookmark.</p>
+        </article>
+        <article class="scopecard">
+          <span class="scopecard__tag">TYPE C · CUSTOM SOFTWARE</span>
+          <h3>The tool nobody sells.</h3>
+          <p>The thing no off-the-shelf product does — written from your
+          workflow, not a feature list, and owned by you outright.</p>
+        </article>
+        <article class="scopecard">
+          <span class="scopecard__tag">TYPE D · AUTOMATIONS</span>
+          <h3>Work that runs itself.</h3>
+          <p>Follow-ups, invoicing, scheduling, handoffs — wired end to end
+          so the busywork fires on time without a human pushing it.</p>
+        </article>
+      </div>
+      <p class="scope__note">Every type ships the same way: written scope,
+      fixed price, Release 1 in 21 days, code 100% yours.</p>
+    </div>
+  </section>
+
   <!-- ══════════ SHEET 01 — WALKTHROUGH ══════════ -->
   <section class="walk" id="walk" bind:this={walkEl}>
     <div class="walk__inner">
@@ -578,7 +620,7 @@
     <div class="tl__inner">
       <div class="sheet-head">
         <span class="no">SHEET 02</span>
-        <h2>The 30-day line.</h2>
+        <h2>The 21-day line.</h2>
         <span class="dim">DIM IN DAYS · NTS</span>
       </div>
       <div class="tl__track">
@@ -587,8 +629,8 @@
           <line class="fill" id="tlFill" x1="0" y1="5" x2="1000" y2="5" pathLength="1000"/>
         </svg>
         <div class="tl__ticks">
-          {#each Array(31) as _, d}
-            <i style="left: {(d / 30) * 100}%; {d % 5 === 0 ? 'height: 14px;' : ''}"></i>
+          {#each Array(22) as _, d}
+            <i style="left: {(d / 21) * 100}%; {d % 7 === 0 ? 'height: 14px;' : ''}"></i>
           {/each}
         </div>
         <div class="tl__nodes">
@@ -610,7 +652,7 @@
           </div>
           <div class="node">
             <div class="node__dot"></div>
-            <span class="node__day">Day ~15</span>
+            <span class="node__day">Day ~10</span>
             <h3>Mid-build demo</h3>
             <p>Demos every few days along the way. The second payment lands only
             after you've seen it working — not before.</p>
@@ -618,7 +660,7 @@
           </div>
           <div class="node">
             <div class="node__dot"></div>
-            <span class="node__day">Day 30</span>
+            <span class="node__day">Day 21</span>
             <h3>Release 1 ships</h3>
             <p>Deployed, documented, handed off. Production-ready core —
             Releases 2 and 3 add depth once it's earning.</p>
@@ -651,9 +693,9 @@
       <div class="doors__grid">
         <div class="door door--active">
           <span class="door__tag">You are here</span>
-          <h3>Web Apps</h3>
-          <p>A custom web app scoped in writing and shipped in 30 days —
-          automation and AI included.</p>
+          <h3>Apps</h3>
+          <p>Web apps, mobile apps, and custom software scoped in writing and
+          shipped in 21 days — automation and AI included.</p>
         </div>
         <div class="door">
           <span class="door__tag">Start smaller</span>
@@ -668,7 +710,7 @@
           handled 24/7 that never misses a lead.</p>
         </div>
       </div>
-      <p class="doors__link">Not sure what to build yet? <a href="/ai-audit">Start with the AI Audit →</a></p>
+      <p class="doors__link">Not sure what to build yet? <a href="/audit">Start with the AI Audit →</a></p>
     </div>
   </section>
 
@@ -722,7 +764,7 @@
         </div>
         <div class="tb__cell tb__cell--desc"><label for="tb-message">Scope description</label><textarea id="tb-message" name="message" required placeholder="Describe the business and the thing you wish existed — the spreadsheet mess, the manual scheduling, the portal your clients keep asking for..."></textarea></div>
         <div class="tb__cell tb__cell--submit">
-          <span class="tb__meta">KWANTUM TECH · WEB APPS<br/>SCOPE IN WRITING · FIXED PRICE · CODE 100% YOURS</span>
+          <span class="tb__meta"><span>KWANTUM TECH · WEB APPS</span> <span>Scope in writing · Fixed price · Code 100% yours</span></span>
           <div class="tb__actions">
             <Turnstile siteKey={turnstileSiteKey} onToken={(token) => (turnstileToken = token)} />
             <button class="btn btn--solid" type="submit" disabled={inquirySending}>
@@ -743,10 +785,10 @@
 
 <style>
   .v2 {
-    --v2-bg: #05080c;
-    --v2-panel: #0a1018;
-    --v2-line: rgba(150, 185, 215, 0.1);
-    --v2-line-strong: rgba(150, 185, 215, 0.22);
+    --v2-bg: #020503;
+    --v2-panel: #061008;
+    --v2-line: rgba(224, 255, 224, 0.09);
+    --v2-line-strong: rgba(224, 255, 224, 0.2);
     --v2-text: #dfe9e2;
     --app-green: #0a9e42;
     position: relative;
@@ -762,8 +804,8 @@
     background-image:
       linear-gradient(var(--v2-line) 1px, transparent 1px),
       linear-gradient(90deg, var(--v2-line) 1px, transparent 1px),
-      linear-gradient(rgba(150, 185, 215, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(150, 185, 215, 0.04) 1px, transparent 1px);
+      linear-gradient(rgba(224, 255, 224, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(224, 255, 224, 0.035) 1px, transparent 1px);
     background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
     mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000 40%, transparent 100%);
     -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000 40%, transparent 100%);
@@ -777,15 +819,15 @@
     padding-bottom: 0.9rem; margin-bottom: 2.6rem;
   }
   .sheet-head .no {
-    font-family: "Share Tech Mono", monospace; color: var(--primary);
+    font-family: var(--font-mono); color: var(--green);
     font-size: 0.78rem; letter-spacing: 0.22em;
   }
   .sheet-head h2 {
     margin: 0; font-size: clamp(1.7rem, 1.6vw + 1rem, 2.5rem);
-    letter-spacing: -0.02em; color: #fff; font-weight: 800; text-shadow: none;
+    letter-spacing: -0.02em; color: #fff; font-weight: 600; text-shadow: none;
   }
   .sheet-head .dim {
-    margin-left: auto; font-family: "Share Tech Mono", monospace;
+    margin-left: auto; font-family: var(--font-mono);
     font-size: 0.66rem; color: rgba(223, 233, 226, 0.35); letter-spacing: 0.2em;
   }
 
@@ -796,15 +838,76 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     font-family: inherit; font-size: 0.95rem;
   }
-  .btn--solid { background: var(--primary); color: #000; text-transform: uppercase; letter-spacing: 0.04em; }
-  .btn--solid:hover { background: var(--secondary); box-shadow: 0 0 26px rgba(0, 255, 65, 0.4); transform: translateY(-2px); }
+  .btn--solid { background: var(--green); color: #000; text-transform: uppercase; letter-spacing: 0.04em; }
+  .btn--solid:hover { background: #66ff8f; box-shadow: 0 0 26px rgba(0, 255, 65, 0.4); transform: translateY(-2px); }
   .btn--solid:disabled { cursor: wait; opacity: 0.65; }
   .btn--ghost {
-    font-family: "Share Tech Mono", monospace; font-size: 0.8rem; letter-spacing: 0.16em;
+    font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.16em;
     text-transform: uppercase; color: var(--v2-text);
     border: 1px solid var(--v2-line-strong); background: rgba(10, 16, 24, 0.5);
   }
-  .btn--ghost:hover { border-color: var(--primary); color: var(--primary); }
+  .btn--ghost:hover { border-color: var(--green); color: var(--green); }
+
+  /* ── Sheet 00: scope of work ── */
+  .scope { padding: 5rem 7vw 1rem; }
+  .scope__inner { max-width: 1280px; margin: 0 auto; }
+
+  .scope__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--v2-line-strong);
+    border: 1px solid var(--v2-line-strong);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .scopecard {
+    background: var(--v2-panel);
+    padding: 1.9rem 1.6rem 2rem;
+    display: grid;
+    gap: 0.7rem;
+    align-content: start;
+  }
+
+  .scopecard__tag {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.2em;
+    color: var(--green);
+  }
+
+  .scopecard h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: #fff;
+  }
+
+  .scopecard p {
+    margin: 0;
+    color: rgba(223, 233, 226, 0.68);
+    line-height: 1.65;
+    font-size: 0.92rem;
+  }
+
+  .scope__note {
+    margin: 1.6rem 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(223, 233, 226, 0.45);
+  }
+
+  @media (max-width: 980px) {
+    .scope__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 560px) {
+    .scope__grid { grid-template-columns: 1fr; }
+  }
 
   /* ── Hero ── */
   .v2hero { min-height: 100vh; display: grid; align-items: center; padding: clamp(5rem, 10vh, 8rem) 7vw 4rem; }
@@ -814,15 +917,15 @@
     gap: clamp(2rem, 4vw, 4rem); align-items: center;
   }
   .hero__eyebrow {
-    font-family: "Share Tech Mono", monospace; font-size: 0.7rem; letter-spacing: 0.26em;
-    color: var(--primary); margin: 0 0 1.6rem; text-transform: uppercase;
+    font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.26em;
+    color: var(--green); margin: 0 0 1.6rem; text-transform: uppercase;
   }
   .hero__eyebrow .sep { color: rgba(223, 233, 226, 0.3); margin: 0 0.5rem; }
   h1 {
     font-size: clamp(2.6rem, 3.6vw + 1rem, 4.6rem); line-height: 1.02;
-    letter-spacing: -0.04em; margin: 0 0 1.6rem; color: #fff; font-weight: 900;
+    letter-spacing: -0.04em; margin: 0 0 1.6rem; color: #fff; font-weight: 700;
   }
-  h1 .draw { color: var(--primary); text-shadow: 0 0 40px rgba(0, 255, 65, 0.4); }
+  h1 .draw { color: var(--green); text-shadow: 0 0 40px rgba(0, 255, 65, 0.4); }
   .hero__lead {
     font-size: clamp(1.05rem, 0.5vw + 0.95rem, 1.25rem); line-height: 1.65;
     color: rgba(223, 233, 226, 0.85); max-width: 46ch; margin: 0 0 2.4rem;
@@ -830,11 +933,11 @@
   .hero__lead strong { color: #fff; }
   .hero__ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
   .hero__spec {
-    margin-top: 2.4rem; font-family: "Share Tech Mono", monospace; font-size: 0.68rem;
+    margin-top: 2.4rem; font-family: var(--font-mono); font-size: 0.68rem;
     letter-spacing: 0.18em; color: rgba(223, 233, 226, 0.45); text-transform: uppercase;
     display: flex; gap: 1.6rem; flex-wrap: wrap;
   }
-  .hero__spec span::before { content: "▸ "; color: var(--primary); }
+  .hero__spec span::before { content: "▸ "; color: var(--green); }
 
   /* ── Browser + app ── */
   .appwrap { perspective: 1200px; }
@@ -852,7 +955,7 @@
   .browser__dots i:nth-child(3) { background: #28c840; }
   .browser__url {
     flex: 1; background: #fff; border-radius: 6px; padding: 5px 12px;
-    font-family: "Share Tech Mono", monospace; font-size: 0.68rem; color: #444;
+    font-family: var(--font-mono); font-size: 0.68rem; color: #444;
   }
   .browser__url b { color: #0a9e42; font-weight: 400; }
 
@@ -862,7 +965,7 @@
     min-height: 470px;
     display: flex;
     font-size: 12px;
-    font-family: Inter, "Segoe UI", system-ui, sans-serif;
+    font-family: system-ui, "Segoe UI", sans-serif; /* demo app portrays a client product, not site type */
   }
 
   /* ── Icon sidebar ── */
@@ -1481,9 +1584,9 @@
     flex-wrap: wrap;
   }
   .handoff.on { opacity: 1; transform: none; }
-  .handoff b { font-size: 11px; letter-spacing: 0.14em; font-family: "Share Tech Mono", monospace; color: var(--primary); }
+  .handoff b { font-size: 11px; letter-spacing: 0.14em; font-family: var(--font-mono); color: var(--green); }
   .handoff span { font-size: 11.5px; color: #c9d2da; }
-  .handoff span i { color: var(--primary); font-style: normal; margin-right: 4px; }
+  .handoff span i { color: var(--green); font-style: normal; margin-right: 4px; }
 
   .toast {
     position: absolute; right: 16px; top: 14px; background: #14181d; color: #fff;
@@ -1491,7 +1594,7 @@
     align-items: center; opacity: 0; transform: translateY(-8px);
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3); z-index: 3; transition: all 0.35s ease;
   }
-  .toast i { font-style: normal; color: var(--primary); font-family: "Share Tech Mono", monospace; font-size: 9px; letter-spacing: 0.1em; }
+  .toast i { font-style: normal; color: var(--green); font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; }
   .toast.on { opacity: 1; transform: none; }
 
   /* ── Walkthrough ── */
@@ -1503,10 +1606,10 @@
      spec number and rule, never by dimming text. */
   .spec { max-width: 46ch; }
   .spec__no {
-    font-family: "Share Tech Mono", monospace; font-size: 0.72rem; letter-spacing: 0.24em;
+    font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.24em;
     color: rgba(0, 255, 65, 0.55); transition: color 0.4s ease, text-shadow 0.4s ease;
   }
-  .spec.on .spec__no { color: var(--primary); text-shadow: 0 0 14px rgba(0, 255, 65, 0.55); }
+  .spec.on .spec__no { color: var(--green); text-shadow: 0 0 14px rgba(0, 255, 65, 0.55); }
   .spec__rule { height: 1px; background: var(--v2-line-strong); position: relative; margin: 0.8rem 0 1.1rem; transform-origin: left; transition: background 0.4s ease; }
   .spec.on .spec__rule { background: rgba(0, 255, 65, 0.5); }
   .spec__rule::after {
@@ -1519,22 +1622,22 @@
   .walk__appcol { position: relative; }
   .walk__sticky { position: sticky; top: 12vh; }
 
-  /* ── 30-day line ── */
+  /* ── 21-day line ── */
   .tl { padding: 7rem 7vw; }
   .tl__inner { max-width: 1280px; margin: 0 auto; }
   .tl__track { position: relative; margin-top: 4.5rem; padding-bottom: 1rem; }
   .tl__svg { width: 100%; height: 10px; display: block; overflow: visible; }
   .tl__svg .rail { stroke: var(--v2-line-strong); stroke-width: 2; }
-  .tl__svg .fill { stroke: var(--primary); stroke-width: 2; filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.6)); }
+  .tl__svg .fill { stroke: var(--green); stroke-width: 2; filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.6)); }
   .tl__ticks { position: absolute; inset: -8px 0 auto 0; height: 10px; pointer-events: none; }
   .tl__ticks i { position: absolute; top: 0; width: 1px; height: 8px; background: var(--v2-line-strong); }
   .tl__nodes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; margin-top: 2.4rem; }
   .node { opacity: 0; transform: translateY(18px); }
-  .node__dot { width: 13px; height: 13px; border-radius: 50%; background: var(--v2-bg); border: 2px solid var(--primary); margin-bottom: 1rem; box-shadow: 0 0 14px rgba(0, 255, 65, 0.4); }
-  .node__day { font-family: "Share Tech Mono", monospace; font-size: 0.66rem; letter-spacing: 0.22em; color: var(--primary); text-transform: uppercase; }
+  .node__dot { width: 13px; height: 13px; border-radius: 50%; background: var(--v2-bg); border: 2px solid var(--green); margin-bottom: 1rem; box-shadow: 0 0 14px rgba(0, 255, 65, 0.4); }
+  .node__day { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.22em; color: var(--green); text-transform: uppercase; }
   .node h3 { margin: 0.5rem 0; font-size: 1.12rem; color: #fff; }
   .node p { margin: 0; font-size: 0.92rem; line-height: 1.65; color: rgba(223, 233, 226, 0.75); }
-  .node .pay { display: inline-block; margin-top: 0.7rem; font-family: "Share Tech Mono", monospace; font-size: 0.7rem; letter-spacing: 0.14em; color: #000; background: var(--primary); padding: 3px 9px; border-radius: 3px; font-weight: 700; }
+  .node .pay { display: inline-block; margin-top: 0.7rem; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; color: #000; background: var(--green); padding: 3px 9px; border-radius: 3px; font-weight: 700; }
   .node .pay--ghost { background: transparent; color: rgba(223, 233, 226, 0.5); border: 1px solid var(--v2-line-strong); }
 
   /* ── Guarantee ── */
@@ -1546,21 +1649,21 @@
     background: rgba(8, 13, 20, 0.75);
   }
   .stampzone__inner::before, .stampzone__inner::after {
-    content: "+"; position: absolute; font-family: "Share Tech Mono", monospace;
+    content: "+"; position: absolute; font-family: var(--font-mono);
     color: var(--v2-line-strong); font-size: 1rem;
   }
   .stampzone__inner::before { top: -0.62em; left: -0.35em; }
   .stampzone__inner::after { bottom: -0.62em; right: -0.35em; }
   .stampzone h2 {
     font-size: clamp(1.9rem, 2.6vw + 1rem, 3.3rem); line-height: 1.1; letter-spacing: -0.03em;
-    margin: 0 auto 1.6rem; color: #fff; max-width: 21ch; font-weight: 900; text-shadow: none;
+    margin: 0 auto 1.6rem; color: #fff; max-width: 21ch; font-weight: 700; text-shadow: none;
   }
-  .stampzone h2 em { font-style: normal; color: var(--primary); text-shadow: 0 0 30px rgba(0, 255, 65, 0.35); }
+  .stampzone h2 em { font-style: normal; color: var(--green); text-shadow: 0 0 30px rgba(0, 255, 65, 0.35); }
   .stampzone p { max-width: 54ch; margin: 0 auto; line-height: 1.7; color: rgba(223, 233, 226, 0.78); }
   .stamp {
     position: absolute; right: clamp(0.5rem, 4vw, 3.5rem); bottom: clamp(0.8rem, 3vw, 2.2rem);
-    font-family: "Share Tech Mono", monospace; color: var(--primary);
-    border: 2.5px solid var(--primary); border-radius: 6px; padding: 0.7rem 1.1rem;
+    font-family: var(--font-mono); color: var(--green);
+    border: 2.5px solid var(--green); border-radius: 6px; padding: 0.7rem 1.1rem;
     font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
     transform: rotate(-8deg) scale(2.4); opacity: 0;
     text-shadow: 0 0 12px rgba(0, 255, 65, 0.5);
@@ -1570,10 +1673,10 @@
   .stamp small { display: block; font-size: 0.56rem; letter-spacing: 0.3em; opacity: 0.8; margin-top: 0.3rem; }
   .payline {
     display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2.4rem;
-    font-family: "Share Tech Mono", monospace; font-size: 0.74rem; letter-spacing: 0.16em;
+    font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.16em;
     color: rgba(223, 233, 226, 0.65);
   }
-  .payline b { color: var(--primary); font-weight: 400; }
+  .payline b { color: var(--green); font-weight: 400; }
 
   /* ── Doors ── */
   .doors { padding: 6rem 7vw; }
@@ -1581,19 +1684,19 @@
   .doors__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
   .door { border: 1px solid var(--v2-line); background: var(--v2-panel); padding: 2rem 1.8rem; }
   .door--active { border-color: rgba(0, 255, 65, 0.5); box-shadow: 0 0 34px rgba(0, 255, 65, 0.1); }
-  .door__tag { font-family: "Share Tech Mono", monospace; font-size: 0.64rem; letter-spacing: 0.22em; color: rgba(223, 233, 226, 0.45); text-transform: uppercase; }
-  .door--active .door__tag { color: var(--primary); }
+  .door__tag { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.22em; color: rgba(223, 233, 226, 0.45); text-transform: uppercase; }
+  .door--active .door__tag { color: var(--green); }
   .door h3 { margin: 0.8rem 0 0.6rem; color: #fff; }
   .door p { margin: 0; line-height: 1.65; color: rgba(223, 233, 226, 0.75); font-size: 0.95rem; }
   .doors__link { text-align: center; margin-top: 2.4rem; color: rgba(223, 233, 226, 0.7); }
-  .doors__link a { color: var(--primary); text-decoration: none; font-weight: 600; }
+  .doors__link a { color: var(--green); text-decoration: none; font-weight: 600; }
 
   /* ── Notes ── */
   .notes { padding: 6rem 7vw; }
   .notes__inner { max-width: 880px; margin: 0 auto; }
   .note { border-top: 1px solid var(--v2-line); padding: 1.7rem 0.2rem; display: grid; grid-template-columns: 90px 1fr; gap: 1.4rem; }
   .note:last-child { border-bottom: 1px solid var(--v2-line); }
-  .note__no { font-family: "Share Tech Mono", monospace; font-size: 0.7rem; letter-spacing: 0.2em; color: var(--primary); padding-top: 0.35rem; }
+  .note__no { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.2em; color: var(--green); padding-top: 0.35rem; }
   .note h3 { margin: 0 0 0.5rem; font-size: 1.1rem; color: #fff; }
   .note p { margin: 0; line-height: 1.7; color: rgba(223, 233, 226, 0.78); font-size: 0.96rem; }
 
@@ -1608,7 +1711,7 @@
   .tb__cell { border: 1px solid var(--v2-line); padding: 1rem 1.2rem 1.2rem; display: grid; gap: 0.5rem; align-content: start; }
   .tb__cell--desc { grid-column: 2 / -1; grid-row: 2; }
   .tb__cell--submit { grid-column: 1 / -1; padding: 1.4rem 1.2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.4rem; flex-wrap: wrap; }
-  .tb__cell label { font-family: "Share Tech Mono", monospace; font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--primary); }
+  .tb__cell label { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--green); }
   .tb__cell input, .tb__cell select, .tb__cell textarea {
     background: transparent; border: 0; border-bottom: 1px solid var(--v2-line-strong);
     color: var(--v2-text); font-family: inherit; font-size: 0.98rem;
@@ -1616,11 +1719,15 @@
   }
   .tb__cell select { cursor: pointer; appearance: none; -webkit-appearance: none; }
   .tb__cell select option { background: #0a1018; color: var(--v2-text); }
-  .tb__cell input:focus, .tb__cell select:focus, .tb__cell textarea:focus { border-bottom-color: var(--primary); }
+  .tb__cell input:focus, .tb__cell select:focus, .tb__cell textarea:focus { border-bottom-color: var(--green); }
   .tb__cell textarea { resize: vertical; min-height: 84px; line-height: 1.6; }
-  .tb__meta { font-family: "Share Tech Mono", monospace; font-size: 0.62rem; letter-spacing: 0.2em; color: rgba(223, 233, 226, 0.4); text-transform: uppercase; line-height: 2; }
+  .tb__meta > span {
+    display: block;
+  }
+
+  .tb__meta { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.2em; color: rgba(223, 233, 226, 0.4); text-transform: uppercase; line-height: 2; }
   .tb__actions { display: grid; gap: 0.8rem; justify-items: end; }
-  .tb__success { text-align: center; color: var(--primary); font-weight: 600; margin: 1.2rem 0 0; }
+  .tb__success { text-align: center; color: var(--green); font-weight: 600; margin: 1.2rem 0 0; }
   .tb__error { text-align: center; color: #ff7a7a; font-weight: 600; margin: 1.2rem 0 0; }
 
   /* ── Responsive ── */
@@ -1644,7 +1751,7 @@
     .app__content { overflow-x: auto; }
     .dash { grid-template-columns: 1fr; }
 
-    /* The 30-day line becomes a vertical timeline on mobile: the horizontal
+    /* The 21-day line becomes a vertical timeline on mobile: the horizontal
        ruler makes no sense stacked, so hide it and connect the dots with a
        left rail instead. */
     .tl { padding: 4rem 6vw; }

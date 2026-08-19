@@ -25,7 +25,7 @@
       if (!window.turnstile || !turnstileEl || turnstileWidgetId !== undefined) return;
       turnstileWidgetId = window.turnstile.render(turnstileEl, {
         sitekey: turnstileSiteKey,
-        theme: "dark",
+        theme: "light", // the widget sits on the paper form card now
         callback: (token) => { turnstileToken = token; },
         "expired-callback": () => { turnstileToken = ""; },
         "error-callback": () => { turnstileToken = ""; }
@@ -116,7 +116,7 @@
   <section class="contact__inner">
     <header class="contact__head reveal">
       <p class="eyebrow">Kwantum Tech · Contact</p>
-      <h1>Let's build something exceptional.</h1>
+      <h1>Let's build something <em class="contact__key">exceptional.</em></h1>
       <p class="lead">
         Custom web and mobile apps, AI that works like an employee, performance
         overhauls, and private, secure tools — built around your business. Tell us
@@ -214,7 +214,7 @@
             <div class="cf-turnstile inquiry-form__turnstile" data-action="turnstile-spin-v2" bind:this={turnstileEl}></div>
           {/if}
 
-          <button type="submit" class="btn btn--solid inquiry-form__submit" disabled={inquirySending}>
+          <button type="submit" class="btn btn--ink inquiry-form__submit" disabled={inquirySending}>
             {inquirySending ? "Sending..." : "Send Message"}
           </button>
 
@@ -234,15 +234,17 @@
   .contact {
     position: relative;
     min-height: calc(100vh - 70px);
-    padding: 5rem 7vw 6rem;
+    padding: var(--sp-section) var(--gutter);
     overflow: hidden;
-    background: radial-gradient(circle at top, rgba(0, 255, 65, 0.16) 0%, transparent 55%);
+    background: var(--tone-void);
   }
 
   .contact__backdrop {
     position: absolute;
     inset: 0;
-    opacity: 0.6;
+    /* 0.42, not 0.5: at 0.5 the field's brightest node under the header lead
+       measured 4.42:1 worst-pixel (needs 4.5) — see README contrast table */
+    opacity: 0.42;
     z-index: 0;
   }
 
@@ -255,90 +257,85 @@
 
   .contact__head {
     max-width: 680px;
-    margin: 0 auto 3.5rem;
+    margin: 0 auto var(--sp-5);
     text-align: center;
   }
 
-  .eyebrow {
-    text-transform: uppercase;
-    letter-spacing: 0.28em;
-    font-weight: 600;
-    color: var(--primary);
-    margin: 0 0 1rem;
-    font-size: 0.72rem;
+  .contact__head .eyebrow {
+    margin-bottom: var(--sp-2);
   }
 
   h1 {
     font-size: clamp(2.2rem, 3vw + 1rem, 3.4rem);
-    line-height: 1.08;
-    letter-spacing: -0.03em;
     margin: 0 0 1.2rem;
-    color: #ffffff;
-    text-shadow: 0 0 14px rgba(0, 255, 65, 0.45);
+  }
+
+  /* the page's one highlighted word */
+  .contact__key {
+    font-style: normal;
+    color: var(--green);
   }
 
   .lead {
-    font-size: clamp(1.02rem, 0.5vw + 0.9rem, 1.2rem);
+    font-size: var(--text-lg);
     line-height: 1.65;
-    color: rgba(224, 255, 224, 0.85);
+    color: var(--text);
     margin: 0;
   }
 
   .contact__grid {
     display: grid;
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    gap: 2rem;
+    gap: var(--sp-4);
     align-items: start;
   }
 
-  /* Info column */
+  /* Info column — dark frost over the neural field */
   .info {
     display: grid;
-    gap: 2rem;
-    padding: 2.2rem;
+    gap: var(--sp-4);
+    padding: var(--sp-4);
     border-radius: 22px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(6px);
+    border: 1px solid var(--line);
+    background: rgb(0 0 0 / 0.62);
+    backdrop-filter: blur(26px) saturate(1.55);
+    -webkit-backdrop-filter: blur(26px) saturate(1.55);
+  }
+
+  @supports not (backdrop-filter: blur(1px)) {
+    .info {
+      background: rgb(2 6 3 / 0.96);
+    }
   }
 
   .info h2 {
-    font-size: 1.4rem;
+    font-size: var(--text-xl);
+    font-weight: 600;
     margin: 0 0 0.7rem;
-    color: #ffffff;
-  }
-
-  .info h3 {
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: var(--primary);
-    margin: 0 0 0.5rem;
   }
 
   .info p {
-    color: rgba(224, 255, 224, 0.78);
+    color: var(--text-dim);
     line-height: 1.65;
     margin: 0 0 1.3rem;
   }
 
   .info__points {
     list-style: none;
-    padding: 0;
+    padding: 1.6rem 0 0;
     margin: 0;
     display: grid;
     gap: 0.9rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding-top: 1.6rem;
+    border-top: 1px solid var(--line);
   }
 
   .info__points li {
     display: flex;
     align-items: flex-start;
     gap: 0.75rem;
-    color: rgba(224, 255, 224, 0.82);
+    color: var(--text);
     line-height: 1.5;
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
   }
 
   .info__check {
@@ -347,8 +344,8 @@
     height: 18px;
     margin-top: 0.15rem;
     border-radius: 50%;
-    border: 1px solid var(--primary);
-    background: rgba(0, 255, 65, 0.12);
+    border: 1px solid var(--green);
+    background: rgb(0 255 65 / 0.12);
     position: relative;
   }
 
@@ -359,19 +356,19 @@
     top: 2px;
     width: 5px;
     height: 9px;
-    border: solid var(--primary);
+    border: solid var(--green);
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
   }
 
-  /* Form card */
+  /* Form card — paper tone: the page's light counterweight, and Chrome's
+     opaque autofill boxes stop reading as broken the way they do on dark */
   .form-card {
-    padding: 2.2rem;
+    padding: var(--sp-4);
     border-radius: 22px;
-    border: 1px solid rgba(0, 255, 65, 0.22);
-    background: rgba(0, 0, 0, 0.62);
-    backdrop-filter: blur(6px);
-    box-shadow: 0 0 40px rgba(0, 255, 65, 0.08);
+    background: var(--tone-paper);
+    color: var(--ink);
+    box-shadow: 0 30px 80px -40px rgb(0 0 0 / 0.9);
   }
 
   .inquiry-form {
@@ -395,58 +392,58 @@
 
   .inquiry-form__field {
     display: grid;
-    gap: 0.4rem;
+    gap: 0.45rem;
   }
 
   .inquiry-form__field label {
-    font-size: 0.74rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    color: var(--primary);
-    font-weight: 600;
+    color: var(--ink-dim);
   }
 
+  /* input styles scoped to the field wrapper — a tel/date added later
+     inherits these instead of falling through to browser defaults */
   .inquiry-form__field input,
   .inquiry-form__field select,
   .inquiry-form__field textarea {
-    background: rgba(0, 255, 65, 0.06);
-    border: 1px solid rgba(0, 255, 65, 0.3);
+    background: #ffffff;
+    border: 1px solid var(--line-ink);
     border-radius: 10px;
     padding: 0.78rem 1rem;
-    color: var(--text);
-    font-family: inherit;
+    color: var(--ink);
+    font-family: var(--font-body);
     font-size: 0.95rem;
-    outline: none;
     width: 100%;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color var(--dur-micro) var(--ease-out),
+                box-shadow var(--dur-micro) var(--ease-out),
+                background-color 9999s;  /* defuses Chrome's autofill repaint */
   }
 
   .inquiry-form__field select {
     appearance: none;
     cursor: pointer;
-    background-image: linear-gradient(45deg, transparent 50%, var(--primary) 50%),
-      linear-gradient(135deg, var(--primary) 50%, transparent 50%);
+    background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%),
+      linear-gradient(135deg, var(--ink) 50%, transparent 50%);
     background-position: calc(100% - 18px) center, calc(100% - 13px) center;
     background-size: 5px 5px, 5px 5px;
     background-repeat: no-repeat;
     padding-right: 2.4rem;
   }
 
-  .inquiry-form__field option {
-    background: #000000;
-    color: var(--text);
-  }
-
   .inquiry-form__field input::placeholder,
   .inquiry-form__field textarea::placeholder {
-    color: rgba(224, 255, 224, 0.4);
+    color: var(--ink-faint);
   }
 
-  .inquiry-form__field input:focus,
-  .inquiry-form__field select:focus,
-  .inquiry-form__field textarea:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(0, 255, 65, 0.15);
+  /* form underline: the focus ring draws in from the left */
+  .inquiry-form__field input:focus-visible,
+  .inquiry-form__field select:focus-visible,
+  .inquiry-form__field textarea:focus-visible {
+    outline: none;
+    border-color: var(--ink);
+    box-shadow: 0 2px 0 0 var(--ink);
   }
 
   .inquiry-form__field textarea {
@@ -460,80 +457,26 @@
   }
 
   .inquiry-form__success {
-    color: var(--primary);
+    color: #00701e;
     font-weight: 600;
     margin: 0;
   }
 
   .inquiry-form__error {
-    color: #ff7a7a;
+    color: #b3261e;
     font-weight: 600;
     margin: 0;
-  }
-
-  /* Buttons */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.85rem 1.8rem;
-    border-radius: 999px;
-    border: 1px solid transparent;
-    text-decoration: none;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    cursor: pointer;
-    font-family: inherit;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-  }
-
-  .btn--solid {
-    background: var(--primary);
-    color: #000000;
-    border-color: var(--primary);
-  }
-
-  .btn--solid:hover {
-    background: var(--secondary);
-    border-color: var(--secondary);
-    box-shadow: 0 0 22px rgba(0, 255, 65, 0.45);
-    transform: translateY(-2px);
-  }
-
-  .btn--solid:disabled {
-    cursor: wait;
-    opacity: 0.65;
-    transform: none;
   }
 
   .inquiry-form__submit {
     width: fit-content;
     justify-self: start;
-    align-self: start;
-    padding: 0.78rem 1.5rem;
     margin-top: 0.3rem;
-    background: var(--primary);
-    color: #000000;
-    border: 1px solid var(--primary);
-    border-radius: 999px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    box-shadow: 0 0 0 3px rgba(0, 255, 65, 0.08);
   }
 
-  .inquiry-form__submit:hover {
-    background: var(--secondary);
-    border-color: var(--secondary);
-    box-shadow: 0 0 22px rgba(0, 255, 65, 0.45);
-    transform: translateY(-2px);
-  }
-
-  /* Subtle entrance animations */
+  /* Entrance — collapses via the global reduced-motion rules */
   .reveal {
-    animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation: reveal-up 0.9s var(--ease-out) both;
   }
 
   .reveal--1 {
@@ -547,7 +490,7 @@
   @keyframes reveal-up {
     from {
       opacity: 0;
-      transform: translateY(24px);
+      transform: translateY(18px);
     }
     to {
       opacity: 1;
@@ -559,26 +502,21 @@
     .contact__grid {
       grid-template-columns: 1fr;
     }
+
+    /* phone: the form leads, the pitch follows */
+    .form-card {
+      order: -1;
+    }
   }
 
   @media (max-width: 640px) {
-    .contact {
-      padding: 3.5rem 6vw 4.5rem;
-    }
-
     .inquiry-form__row {
       grid-template-columns: 1fr;
     }
 
     .info,
     .form-card {
-      padding: 1.7rem;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .reveal {
-      animation: none;
+      padding: var(--sp-3);
     }
   }
 </style>

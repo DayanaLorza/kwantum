@@ -105,7 +105,7 @@
 <Seo
   title="AI Employees for Real Estate | Kwantum Tech"
   description="Hire AI employees that never clock out. They qualify leads, follow up, and book calls 24/7 — built for you."
-  image="/og-ai-employees.png"
+  image="/assets/og/og-ai-employees.png"
   imageAlt="Kwantum Tech AI Employees — Lead Response, Client Support, and 24/7 Automation"
   keywords={[
     "AI employees",
@@ -138,7 +138,7 @@
     <div class="ahero__inner">
       <div class="ahero__copy">
         <p class="eyebrow">Kwantum Tech · AI Employees</p>
-        <h1>Hire AI employees that never clock out.</h1>
+        <h1>Hire AI employees that <em class="key">never clock out.</em></h1>
         <p class="lead">
           Premium AI employees, built for luxury real-estate teams. Yours answers every lead in
           minutes — at 11:47 PM too — books showings into your open slots, and briefs you each
@@ -189,8 +189,9 @@
   </section>
 
   <!-- ── 2. PROBLEM / AGITATION ── -->
-  <section class="problem section">
-    <header class="section__head">
+  <section class="problem band band--paper">
+    <div class="band__inner">
+    <header class="band__head">
       <p class="eyebrow">The Reality of Running Lean</p>
       <h2>Growth shouldn't depend on you being everywhere at once.</h2>
     </header>
@@ -223,10 +224,12 @@
         </p>
       </article>
     </div>
+    </div>
   </section>
 
   <!-- ── 3. SOLUTION INTRODUCTION ── -->
-  <section class="solution section">
+  <section id="agents" class="showcase band band--panel">
+    <div class="band__inner">
     <div class="solution__inner">
       <p class="eyebrow">A Better Way to Scale</p>
       <h2>Meet your new AI employees.</h2>
@@ -242,14 +245,6 @@
         ahead.
       </p>
     </div>
-  </section>
-
-  <!-- ── 4. AGENT SHOWCASE ── -->
-  <section id="agents" class="showcase section">
-    <header class="section__head">
-      <p class="eyebrow">The Team You Can Hire Today</p>
-      <h2>AI employees for the work real estate teams repeat every day.</h2>
-    </header>
 
     <!-- Client acquisition -->
     <article class="agent agent--acquisition">
@@ -324,11 +319,13 @@
         </a>
       </div>
     </article>
+    </div>
   </section>
 
   <!-- ── 5. INDUSTRIES WE POWER ── -->
-  <section class="industries section">
-    <header class="section__head">
+  <section class="industries band band--paper">
+    <div class="band__inner">
+    <header class="band__head">
       <p class="eyebrow">Built for Your World</p>
       <h2>Industries we power.</h2>
       <p class="section__sub">
@@ -358,11 +355,13 @@
         <p>Greet new inquiries, schedule consultations, and keep buyers and sellers informed without tying up your team.</p>
       </article>
     </div>
+    </div>
   </section>
 
   <!-- ── 6. HOW IT WORKS ── -->
-  <section id="how-it-works" class="how section">
-    <header class="section__head">
+  <section id="how-it-works" class="how band">
+    <div class="band__inner">
+    <header class="band__head">
       <p class="eyebrow">Simple From Day One</p>
       <h2>How it works.</h2>
       <p class="section__sub">Three steps from first call to a working AI employee.</p>
@@ -395,63 +394,56 @@
         </p>
       </article>
     </div>
+    </div>
   </section>
 
-  <!-- ── 7. SOCIAL PROOF ── -->
-  <section class="proof section">
-    <header class="section__head">
-      <p class="eyebrow">Don't Just Take Our Word</p>
-      <h2>Businesses already pulling ahead.</h2>
+  <!-- ── 7. SCENARIOS (illustrative — no invented clients) ── -->
+  <section class="proof band band--paper">
+    <div class="band__inner">
+    <header class="band__head">
+      <p class="eyebrow">What It Looks Like</p>
+      <h2>The first quarter with an AI employee.</h2>
+      <p class="band__sub">
+        Illustrative scenarios — the shape of the role in production, not client
+        quotes. Your numbers come from your own report.
+      </p>
     </header>
     <div class="proof__grid">
-      <figure class="quote">
+      <article class="quote">
         <span class="quote__agent quote__agent--acquisition">Lead Response Employee</span>
-        <blockquote>
-          “Lead Response Employee changed the game for our team. We were losing leads every
-          weekend and after hours — now every inquiry gets an instant, intelligent
-          response no matter when it comes in. We've booked more buyer and seller consultations this
-          quarter than any quarter before, and I haven't had to hire a single
-          additional person to make it happen.”
-        </blockquote>
-        <figcaption>
-          <span class="quote__name">Jordan M.</span>
-          <span class="quote__role">Broker / Owner · Real Estate Agency, Miami FL</span>
-        </figcaption>
-      </figure>
-      <figure class="quote">
+        <p>
+          The weekend leads stop dying in the inbox. Every inquiry gets an
+          instant, intelligent response — Saturday night included — and
+          consultations land on the calendar without anyone touching a phone.
+        </p>
+        <span class="quote__tag">Illustrative scenario</span>
+      </article>
+      <article class="quote">
         <span class="quote__agent quote__agent--acquisition">Lead Response Employee</span>
-        <blockquote>
-          “We were drowning in repetitive client communications — status updates,
-          follow-ups, intake forms. Our AI employee handles all of it now. Our team is
-          focused on actual strategy and creative work, and we've taken on 40% more
-          accounts without adding headcount. It's like having a senior ops person
-          who never needs a day off.”
-        </blockquote>
-        <figcaption>
-          <span class="quote__name">Taylor R.</span>
-          <span class="quote__role">Founder · Marketing Agency, Austin TX</span>
-        </figcaption>
-      </figure>
-      <figure class="quote">
+        <p>
+          The repetitive client communications — status updates, follow-ups,
+          intake — run themselves. The team's hours move to strategy and
+          relationships, and volume grows without a new hire.
+        </p>
+        <span class="quote__tag">Illustrative scenario</span>
+      </article>
+      <article class="quote">
         <span class="quote__agent quote__agent--operations">Client Support Employee</span>
-        <blockquote>
-          “Our team could not be available around the clock, and we were
-          losing high-intent property inquiries because of it. Our AI employee answers client questions
-          instantly — availability, next steps, documents, and handoffs — at 2am
-          just as well as 2pm. Within the first month we recovered conversations we
-          would have simply lost overnight.”
-        </blockquote>
-        <figcaption>
-          <span class="quote__name">Alex D.</span>
-          <span class="quote__role">Operations Director · Boutique Hotel Group</span>
-        </figcaption>
-      </figure>
+        <p>
+          The 2am property questions get answered at 2am — availability, next
+          steps, documents, handoffs. Conversations that used to be lost
+          overnight are waiting, warm, in the morning brief.
+        </p>
+        <span class="quote__tag">Illustrative scenario</span>
+      </article>
+    </div>
     </div>
   </section>
 
   <!-- ── 8. FAQ ── -->
-  <section class="faq section">
-    <header class="section__head">
+  <section class="faq band">
+    <div class="band__inner">
+    <header class="band__head">
       <p class="eyebrow">Questions, Answered</p>
       <h2>Frequently asked.</h2>
     </header>
@@ -466,16 +458,19 @@
         </details>
       {/each}
     </div>
+    </div>
   </section>
 
   <!-- ── 8b. BOUNDARIES: "WHAT IT NEVER DOES" (§5b item 3) ── -->
-  <section class="boundaries section" aria-label="What your AI employee never does">
+  <section class="boundaries band band--paper" aria-label="What your AI employee never does">
+    <div class="band__inner">
     <h2 class="boundaries__head">What it never does</h2>
     <ul class="boundaries__list">
       <li>It never sends anything as you without your OK.</li>
       <li>It never touches a negotiation — those come to you.</li>
       <li>Every action is logged, so you can read the receipts any time.</li>
     </ul>
+    </div>
   </section>
 
   <!-- ── 9. FINAL CTA ── -->
@@ -542,153 +537,63 @@
 
 <style>
   .agents {
-    --acquisition: #00e5ff;
-    --operations: #b66bff;
+    /* two-employee accent pair, inside the locked triad: green + mint */
+    --acquisition: var(--green);
+    --operations: var(--mint);
     padding-bottom: 0;
     overflow: hidden;
   }
 
-  .section {
-    padding: 5.5rem 7vw;
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-
-  .section__head {
-    max-width: 720px;
-    margin: 0 auto 3rem;
-    text-align: center;
-  }
-
-  .section__sub {
-    color: rgba(224, 255, 224, 0.75);
-    line-height: 1.7;
-    margin: 0.8rem 0 0;
-  }
-
-  .eyebrow {
-    text-transform: uppercase;
-    letter-spacing: 0.28em;
-    font-weight: 600;
-    color: var(--primary);
-    margin: 0 0 1rem;
-    font-size: 0.72rem;
-  }
-
   h1 {
     font-size: clamp(2.6rem, 4vw + 1rem, 4.4rem);
-    line-height: 1.04;
-    letter-spacing: -0.04em;
+    font-weight: 600;
     margin: 0 0 1.4rem;
-    color: #ffffff;
-    text-shadow: 0 0 14px rgba(0, 255, 65, 0.45);
   }
 
-  h2 {
-    font-size: clamp(1.9rem, 1.8vw + 1rem, 2.8rem);
-    line-height: 1.12;
-    letter-spacing: -0.03em;
-    margin: 0;
-    color: #ffffff;
-    text-shadow: 0 0 12px rgba(0, 255, 65, 0.35);
+  /* the page's one highlighted phrase — and its one glow */
+  .key {
+    font-style: normal;
+    color: var(--green);
+    text-shadow: var(--glow);
   }
 
   h3 {
-    color: #ffffff;
-    margin: 0 0 0.6rem;
-  }
-
-  /* ── Buttons ── */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.85rem 1.8rem;
-    border-radius: 999px;
-    border: 1px solid transparent;
-    text-decoration: none;
+    font-size: var(--text-xl);
     font-weight: 600;
-    letter-spacing: 0.02em;
-    cursor: pointer;
-    font-family: inherit;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease,
-      border-color 0.2s ease, color 0.2s ease;
-  }
-
-  .btn--solid {
-    background: var(--primary);
-    color: #000000;
-    border-color: var(--primary);
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.92rem;
-  }
-
-  .btn--solid:hover {
-    background: var(--secondary);
-    border-color: var(--secondary);
-    box-shadow: 0 0 22px rgba(0, 255, 65, 0.45);
-    transform: translateY(-2px);
-  }
-
-  .btn--solid:disabled {
-    cursor: wait;
-    opacity: 0.65;
-  }
-
-  .btn--ghost {
-    background: transparent;
-    color: var(--primary);
-    border-color: rgba(0, 255, 65, 0.4);
-  }
-
-  .btn--ghost:hover {
-    border-color: var(--primary);
-    box-shadow: 0 0 16px rgba(0, 255, 65, 0.3);
+    margin: 0 0 0.6rem;
   }
 
   .btn--accent {
     background: transparent;
-    color: var(--accent-color, var(--primary));
-    border-color: var(--accent-color, var(--primary));
-    text-transform: uppercase;
+    color: var(--accent-color, var(--green));
+    border-color: var(--accent-color, var(--green));
     font-size: 0.88rem;
   }
 
   .btn--accent:hover {
-    background: var(--accent-color, var(--primary));
-    color: #000000;
-    box-shadow: 0 0 20px var(--accent-glow, rgba(0, 255, 65, 0.4));
-    transform: translateY(-2px);
+    background: var(--accent-color, var(--green));
+    color: var(--black);
   }
 
-  .btn--lg {
-    padding: 1.05rem 2.4rem;
-    font-size: 1rem;
-  }
-
-  /* ── 1. Hero ── */
+  /* ── 1. Hero — tone: void ── */
   .ahero {
     position: relative;
-    padding: calc(6rem - 20px) 7vw 5rem;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: var(--sp-section) var(--gutter) var(--sp-6);
+    border-bottom: 1px solid var(--line);
     overflow: hidden;
   }
 
   .ahero__glow {
     position: absolute;
     inset: 0;
-    background:
-      radial-gradient(ellipse at 30% 0%, rgba(0, 229, 255, 0.12), transparent 50%),
-      radial-gradient(ellipse at 75% 20%, rgba(182, 107, 255, 0.12), transparent 50%);
+    background: radial-gradient(ellipse at 50% 0%, rgb(0 255 65 / 0.08), transparent 55%);
     z-index: 0;
   }
 
   .ahero__backdrop {
     position: absolute;
     inset: 0;
-    opacity: 0.6;
+    opacity: 0.5;
     z-index: 0;
   }
 
@@ -709,13 +614,14 @@
   }
 
   .ahero__copy { grid-area: copy; }
+  .ahero__copy .eyebrow { margin-bottom: var(--sp-2); }
   .ahero__actions { grid-area: actions; align-self: start; }
   .ahero__demo { grid-area: demo; justify-self: center; margin-top: -20px; }
 
   .lead {
-    font-size: clamp(1.05rem, 0.6vw + 0.9rem, 1.3rem);
+    font-size: var(--text-lg);
     line-height: 1.6;
-    color: rgba(224, 255, 224, 0.88);
+    color: var(--text);
     max-width: 56ch;
     margin: 0 0 2.4rem;
   }
@@ -729,85 +635,167 @@
 
   .ahero__note {
     margin: 1.6rem 0 0;
-    font-size: 0.82rem;
-    letter-spacing: 0.12em;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(224, 255, 224, 0.5);
+    color: var(--text-dim);
   }
 
-  /* ── 2. Problem ── */
+  /* ── 1b. "While you slept" strip — hero chrome ── */
+  .timeline {
+    text-align: center;
+    padding: 3.5rem var(--gutter);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .timeline__head {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: var(--text-xs);
+    color: var(--green);
+    margin: 0 0 2rem;
+  }
+
+  .timeline__track {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 960px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    position: relative;
+  }
+
+  .timeline__track::before {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 12.5%;
+    right: 12.5%;
+    height: 1px;
+    background: linear-gradient(90deg, rgb(0 255 65 / 0.12), rgb(0 255 65 / 0.45), rgb(0 255 65 / 0.12));
+  }
+
+  .timeline__step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    padding-top: 1.4rem;
+  }
+
+  .timeline__step::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--green);
+  }
+
+  .timeline__time {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--text-hi);
+  }
+
+  .timeline__label {
+    font-size: var(--text-sm);
+    color: var(--text-dim);
+    line-height: 1.3;
+    max-width: 14ch;
+  }
+
+  .timeline__stat {
+    margin: 2.6rem auto 0;
+    max-width: 620px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text);
+  }
+
+  .timeline__stat strong {
+    color: var(--text-hi);
+  }
+
+  /* ── 2. Problem — tone: paper ── */
   .problem__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: var(--sp-3);
   }
 
   .pain {
-    background: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: #ffffff;
+    border: 1px solid var(--line-ink);
     border-radius: 18px;
     padding: 2rem 1.8rem;
   }
 
   .pain__num {
     display: block;
-    font-family: "Share Tech Mono", monospace;
-    color: var(--accent);
+    font-family: var(--font-mono);
+    color: var(--ink-faint);
     letter-spacing: 0.2em;
     margin-bottom: 1rem;
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
   }
 
   .pain p {
-    color: rgba(224, 255, 224, 0.78);
+    color: var(--ink-dim);
     line-height: 1.7;
     margin: 0;
   }
 
-  /* ── 3. Solution ── */
-  .solution {
+  /* ── 3+4. Solution intro + showcase — tone: dark panel ── */
+  .solution__inner {
+    max-width: 760px;
+    margin: 0 auto var(--sp-5);
     text-align: center;
   }
 
-  .solution__inner {
-    max-width: 760px;
-    margin: 0 auto;
+  .solution__inner h2 {
+    font-size: var(--text-3xl);
+    font-weight: 600;
+    margin: var(--sp-2) 0 0;
   }
 
   .solution__lead {
-    font-size: 1.18rem;
+    font-size: var(--text-lg);
     line-height: 1.7;
-    color: rgba(224, 255, 224, 0.85);
+    color: var(--text);
     margin: 1.6rem 0 0;
   }
 
   .solution__lead strong {
-    color: var(--primary);
+    color: var(--text-hi);
   }
 
-  /* ── 4. Agent Showcase ── */
   .agent {
     display: grid;
     grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-    gap: 2.5rem;
+    gap: var(--sp-4);
     align-items: center;
-    padding: 2.5rem;
+    padding: var(--sp-4);
     border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background:
-      linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.72)),
-      radial-gradient(circle at top left, var(--accent-glow), transparent 60%);
-    margin-bottom: 2rem;
+    border: 1px solid var(--line);
+    background: rgb(0 0 0 / 0.5);
+    margin-bottom: var(--sp-4);
   }
 
   .agent--acquisition {
     --accent-color: var(--acquisition);
-    --accent-glow: rgba(0, 229, 255, 0.35);
+    --accent-soft: rgb(0 255 65 / 0.1);
   }
 
   .agent--operations {
     --accent-color: var(--operations);
-    --accent-glow: rgba(182, 107, 255, 0.35);
+    --accent-soft: rgb(224 255 224 / 0.1);
   }
 
   .agent__visual {
@@ -816,12 +804,12 @@
     gap: 1.2rem;
     padding: 2rem;
     border-radius: 18px;
-    background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+    background: radial-gradient(circle, var(--accent-soft), transparent 70%);
   }
 
   .agent__badge {
-    font-family: "Share Tech Mono", monospace;
-    font-size: 0.72rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
     letter-spacing: 0.24em;
     text-transform: uppercase;
     color: var(--accent-color);
@@ -830,13 +818,11 @@
   .agent__name {
     font-size: clamp(1.8rem, 1.4vw + 1rem, 2.4rem);
     margin: 0 0 0.5rem;
-    color: #ffffff;
-    text-shadow: 0 0 14px var(--accent-glow);
   }
 
   .agent__tagline {
-    font-size: 1.1rem;
-    color: rgba(224, 255, 224, 0.85);
+    font-size: var(--text-lg);
+    color: var(--text);
     line-height: 1.55;
     margin: 0 0 1.5rem;
   }
@@ -852,7 +838,7 @@
   .agent__benefits li {
     position: relative;
     padding-left: 1.6rem;
-    color: rgba(224, 255, 224, 0.8);
+    color: var(--text-dim);
     line-height: 1.6;
   }
 
@@ -865,11 +851,10 @@
     height: 8px;
     border-radius: 50%;
     background: var(--accent-color);
-    box-shadow: 0 0 8px var(--accent-color);
   }
 
   .agent__benefits strong {
-    color: #ffffff;
+    color: var(--text-hi);
   }
 
   .agent__tags {
@@ -880,55 +865,75 @@
   }
 
   .agent__tags span {
-    font-size: 0.78rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
     letter-spacing: 0.08em;
     text-transform: uppercase;
     padding: 0.4rem 0.9rem;
     border-radius: 999px;
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
-    background: var(--accent-glow);
+    border: 1px solid var(--line-strong);
+    color: var(--text-dim);
   }
 
-  /* ── 5. Industries ── */
+  /* ── 5. Industries — tone: paper ── */
   .industries__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: var(--sp-3);
   }
 
   .industry {
-    background: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(0, 255, 65, 0.14);
+    position: relative;
+    background: #ffffff;
+    border: 1px solid var(--line-ink);
     border-radius: 18px;
     padding: 1.8rem;
-    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    overflow: hidden;
+    transition: transform var(--dur-micro) var(--ease-out),
+                box-shadow var(--dur-micro) var(--ease-out);
+  }
+
+  /* row-hover rule drawn over the static hairline */
+  .industry::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 2px;
+    width: 100%;
+    background: var(--ink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s var(--ease-out);
   }
 
   .industry:hover {
-    border-color: rgba(0, 255, 65, 0.5);
-    transform: translateY(-4px);
-    box-shadow: 0 0 24px rgba(0, 255, 65, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px -28px rgb(11 19 13 / 0.5);
+  }
+
+  .industry:hover::after {
+    transform: scaleX(1);
   }
 
   .industry p {
-    color: rgba(224, 255, 224, 0.78);
+    color: var(--ink-dim);
     line-height: 1.65;
     margin: 0;
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
   }
 
-  /* ── 6. How It Works ── */
+  /* ── 6. How it works — tone: void ── */
   .how__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: var(--sp-3);
   }
 
   .step {
     position: relative;
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgb(0 0 0 / 0.5);
+    border: 1px solid var(--line);
     border-radius: 20px;
     padding: 2.4rem 1.8rem 2rem;
   }
@@ -939,32 +944,30 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: var(--primary);
-    color: #000000;
-    font-weight: 700;
-    font-size: 1.3rem;
+    background: var(--green);
+    color: var(--black);
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
     margin-bottom: 1.2rem;
-    box-shadow: 0 0 18px rgba(0, 255, 65, 0.45);
   }
 
   .step p {
-    color: rgba(224, 255, 224, 0.78);
+    color: var(--text-dim);
     line-height: 1.7;
     margin: 0;
   }
 
-  /* ── 7. Social Proof ── */
+  /* ── 7. Scenarios — tone: paper, explicitly illustrative ── */
   .proof__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: var(--sp-3);
   }
 
   .quote {
     margin: 0;
-    background: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-left: 3px solid var(--primary);
+    background: #ffffff;
+    border: 1px solid var(--line-ink);
     border-radius: 16px;
     padding: 2rem 1.8rem;
     display: flex;
@@ -974,49 +977,42 @@
 
   .quote__agent {
     align-self: flex-start;
-    font-family: "Share Tech Mono", monospace;
-    font-size: 0.68rem;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     padding: 0.35rem 0.8rem;
     border-radius: 999px;
-    border: 1px solid currentColor;
   }
 
-  .quote__agent--acquisition {
-    color: var(--acquisition);
-    background: rgba(0, 229, 255, 0.12);
+  /* employee chips: green metric language on black, per the brand kit */
+  .quote__agent--acquisition,
+  .quote__agent--operations {
+    background: var(--black);
+    color: var(--green);
   }
 
   .quote__agent--operations {
-    color: var(--operations);
-    background: rgba(182, 107, 255, 0.12);
+    color: var(--mint);
   }
 
-  .quote blockquote {
+  .quote p {
     margin: 0;
-    color: rgba(224, 255, 224, 0.85);
+    color: var(--ink-dim);
     line-height: 1.7;
     font-size: 1.02rem;
   }
 
-  .quote figcaption {
-    display: grid;
-    gap: 0.25rem;
+  .quote__tag {
+    margin-top: auto;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
   }
 
-  .quote__name {
-    color: #ffffff;
-    font-weight: 600;
-  }
-
-  .quote__role {
-    color: var(--primary);
-    font-size: 0.82rem;
-    letter-spacing: 0.04em;
-  }
-
-  /* ── 8. FAQ ── */
+  /* ── 8. FAQ — tone: void ── */
   .faq__list {
     max-width: 820px;
     margin: 0 auto;
@@ -1025,15 +1021,15 @@
   }
 
   .faq__item {
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(0, 255, 65, 0.16);
+    background: rgb(0 0 0 / 0.5);
+    border: 1px solid var(--line);
     border-radius: 14px;
     padding: 0 1.5rem;
-    transition: border-color 0.2s ease;
+    transition: border-color var(--dur-micro) var(--ease-out);
   }
 
   .faq__item[open] {
-    border-color: rgba(0, 255, 65, 0.45);
+    border-color: var(--line-green);
   }
 
   .faq__item summary {
@@ -1044,7 +1040,7 @@
     padding: 1.3rem 0;
     cursor: pointer;
     list-style: none;
-    color: #ffffff;
+    color: var(--text-hi);
     font-weight: 600;
     font-size: 1.05rem;
   }
@@ -1064,9 +1060,10 @@
   .faq__plus::after {
     content: "";
     position: absolute;
-    background: var(--primary);
+    background: var(--green);
     border-radius: 2px;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition: transform var(--dur-micro) var(--ease-out),
+                opacity var(--dur-micro) var(--ease-out);
   }
 
   .faq__plus::before {
@@ -1091,24 +1088,54 @@
   .faq__item p {
     margin: 0;
     padding: 0 0 1.4rem;
-    color: rgba(224, 255, 224, 0.8);
+    color: var(--text-dim);
     line-height: 1.75;
   }
 
-  /* ── 9. Final CTA ── */
+  /* ── 8b. Boundaries — tone: paper ── */
+  .boundaries {
+    text-align: center;
+  }
+
+  .boundaries__head {
+    font-size: var(--text-3xl);
+    font-weight: 600;
+    margin: 0 0 2rem;
+  }
+
+  .boundaries__list {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+  }
+
+  .boundaries__list li {
+    padding: 1.6rem 1.4rem;
+    border: 1px solid var(--line-ink);
+    border-radius: 14px;
+    background: #ffffff;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--ink-dim);
+  }
+
+  /* ── 9. Final CTA — tone: void ── */
   .final {
     position: relative;
-    margin-top: 2rem;
-    padding: 6rem 7vw 5rem;
+    padding: var(--sp-section) var(--gutter) var(--sp-6);
     text-align: center;
-    border-top: 1px solid rgba(0, 255, 65, 0.2);
+    border-top: 1px solid var(--line);
     overflow: hidden;
   }
 
   .final__glow {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at bottom, rgba(0, 255, 140, 0.18), rgba(0, 0, 0, 0.95) 60%);
+    background: radial-gradient(circle at bottom, rgb(0 255 65 / 0.1), transparent 60%);
     z-index: 0;
   }
 
@@ -1119,28 +1146,18 @@
     margin: 0 auto;
   }
 
+  .final__inner h2 {
+    font-size: var(--text-3xl);
+    font-weight: 600;
+    margin: var(--sp-2) 0 0;
+  }
+
   .final__lead {
-    font-size: 1.15rem;
+    font-size: var(--text-lg);
     line-height: 1.65;
-    color: rgba(224, 255, 224, 0.85);
+    color: var(--text);
     margin: 1.2rem auto 2.2rem;
     max-width: 560px;
-  }
-
-  .calendly-embed {
-    max-width: 680px;
-    margin: 0 auto 2.4rem;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid rgba(0, 229, 255, 0.18);
-    box-shadow: 0 0 40px rgba(0, 229, 255, 0.1);
-  }
-
-  .calendly-embed iframe {
-    display: block;
-    width: 100%;
-    height: 680px;
-    border: 0;
   }
 
   .final__divider {
@@ -1148,8 +1165,9 @@
     align-items: center;
     gap: 1rem;
     margin: 3rem 0 2rem;
-    color: rgba(224, 255, 224, 0.45);
-    font-size: 0.8rem;
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
     letter-spacing: 0.15em;
     text-transform: uppercase;
   }
@@ -1159,10 +1177,10 @@
     content: "";
     flex: 1;
     height: 1px;
-    background: rgba(255, 255, 255, 0.12);
+    background: var(--line);
   }
 
-  /* ── Lead form ── */
+  /* ── Lead form (dark ground) ── */
   .lead-form {
     display: grid;
     gap: 1rem;
@@ -1187,40 +1205,42 @@
 
   .lead-form__field {
     display: grid;
-    gap: 0.4rem;
+    gap: 0.45rem;
   }
 
   .lead-form__field label {
-    font-size: 0.76rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    color: var(--primary);
-    font-weight: 600;
+    color: var(--text-dim);
   }
 
   .lead-form__field input,
   .lead-form__field textarea {
-    background: rgba(0, 255, 65, 0.07);
-    border: 1px solid rgba(0, 255, 65, 0.3);
+    background: rgb(224 255 224 / 0.05);
+    border: 1px solid var(--line-strong);
     border-radius: 10px;
     padding: 0.75rem 1rem;
     color: var(--text);
-    font-family: inherit;
+    font-family: var(--font-body);
     font-size: 0.95rem;
-    outline: none;
     width: 100%;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color var(--dur-micro) var(--ease-out),
+                box-shadow var(--dur-micro) var(--ease-out),
+                background-color 9999s;  /* defuses Chrome's opaque autofill paint */
   }
 
   .lead-form__field input::placeholder,
   .lead-form__field textarea::placeholder {
-    color: rgba(224, 255, 224, 0.4);
+    color: var(--text-faint);
   }
 
-  .lead-form__field input:focus,
-  .lead-form__field textarea:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(0, 255, 65, 0.15);
+  .lead-form__field input:focus-visible,
+  .lead-form__field textarea:focus-visible {
+    outline: none;
+    border-color: var(--green);
+    box-shadow: 0 2px 0 0 var(--green);
   }
 
   .lead-form__field textarea {
@@ -1228,20 +1248,13 @@
     min-height: 90px;
   }
 
-  .lead-form .btn--solid {
-    width: 100%;
+  .lead-form__submit {
+    justify-self: start;
     margin-top: 0.4rem;
   }
 
-  .lead-form .btn--solid.lead-form__submit {
-    display: inline-flex;
-    width: auto !important;
-    max-width: max-content;
-    justify-self: start;
-  }
-
   .lead-form__success {
-    color: var(--primary);
+    color: var(--green);
     font-weight: 600;
     margin: 0.2rem 0 0;
   }
@@ -1250,119 +1263,6 @@
     color: #ff7a7a;
     font-weight: 600;
     margin: 0.2rem 0 0;
-  }
-
-  /* ── "While you slept" timeline strip (§5b item 1) ── */
-  .timeline {
-    text-align: center;
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
-  }
-
-  .timeline__head {
-    font-family: "Share Tech Mono", ui-monospace, monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
-    font-size: 0.8rem;
-    color: #00e5ff;
-    margin: 0 0 2rem;
-  }
-
-  .timeline__track {
-    list-style: none;
-    margin: 0 auto;
-    padding: 0;
-    max-width: 960px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    position: relative;
-  }
-
-  /* Connecting line behind the nodes */
-  .timeline__track::before {
-    content: "";
-    position: absolute;
-    top: 7px;
-    left: 12.5%;
-    right: 12.5%;
-    height: 1px;
-    background: linear-gradient(90deg, rgba(0, 229, 255, 0.15), rgba(0, 229, 255, 0.5), rgba(0, 229, 255, 0.15));
-  }
-
-  .timeline__step {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.4rem;
-    padding-top: 1.4rem;
-  }
-
-  .timeline__step::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: #00e5ff;
-    box-shadow: 0 0 12px rgba(0, 229, 255, 0.6);
-  }
-
-  .timeline__time {
-    font-family: "Share Tech Mono", ui-monospace, monospace;
-    font-size: 0.95rem;
-    color: #ffffff;
-  }
-
-  .timeline__label {
-    font-size: 0.85rem;
-    color: rgba(224, 255, 224, 0.7);
-    line-height: 1.3;
-    max-width: 14ch;
-  }
-
-  .timeline__stat {
-    margin: 2.6rem auto 0;
-    max-width: 620px;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    color: rgba(224, 255, 224, 0.82);
-  }
-
-  .timeline__stat strong {
-    color: #ffffff;
-    text-shadow: 0 0 12px rgba(0, 229, 255, 0.4);
-  }
-
-  /* ── "What it never does" boundaries (§5b item 3) ── */
-  .boundaries {
-    text-align: center;
-  }
-
-  .boundaries__head {
-    margin: 0 0 2rem;
-  }
-
-  .boundaries__list {
-    list-style: none;
-    margin: 0 auto;
-    padding: 0;
-    max-width: 900px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.4rem;
-  }
-
-  .boundaries__list li {
-    padding: 1.6rem 1.4rem;
-    border: 1px solid rgba(0, 229, 255, 0.16);
-    border-radius: 14px;
-    background: rgba(0, 229, 255, 0.04);
-    font-size: 1rem;
-    line-height: 1.5;
-    color: rgba(224, 255, 224, 0.9);
   }
 
   /* ── Responsive ── */
@@ -1412,20 +1312,12 @@
   }
 
   @media (max-width: 640px) {
-    .section {
-      padding: 4rem 6vw;
-    }
-
     .ahero {
-      padding: 4rem 6vw 3.5rem;
+      padding: var(--sp-5) var(--gutter) var(--sp-4);
     }
 
     h1 {
       font-size: 2.15rem;
-    }
-
-    .final {
-      padding: 4.5rem 6vw 4rem;
     }
 
     .ahero__cta .btn {

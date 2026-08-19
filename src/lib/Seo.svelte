@@ -19,7 +19,7 @@
 		title = 'Kwantum Tech | IT Consulting & AI Employees',
 		description = 'Kwantum Tech delivers modern IT consulting, cloud architecture, cybersecurity, and premium AI employees that work for your business 24/7.',
 		// Path (relative to /static) or absolute URL to the share image (1200x630 recommended)
-		image = '/og-image.png',
+		image = '/assets/og/og-home.png',
 		imageAlt = 'Kwantum Tech — AI Employees, IT Consulting & Automation',
 		// 'website' for landing pages, 'article' for blog posts, etc.
 		type = 'website',

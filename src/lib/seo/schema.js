@@ -11,8 +11,8 @@ export const organizationSchema = {
 	name: 'Kwantum Tech',
 	legalName: 'Kwantum Consulting LLC',
 	url: SITE_URL,
-	logo: `${SITE_URL}/og-image.png`,
-	image: `${SITE_URL}/og-image.png`,
+	logo: `${SITE_URL}/assets/og/og-home.png`,
+	image: `${SITE_URL}/assets/og/og-home.png`,
 	description:
 		'Kwantum Tech is a premium software engineering and IT consulting firm building AI employees, custom web and mobile applications, secure infrastructure, and automation for high-performance teams.',
 	slogan: 'Quantum-grade engineering for elite ambitions.',
@@ -48,7 +48,7 @@ export const professionalServiceSchema = {
 	'@id': `${SITE_URL}/#service`,
 	name: 'Kwantum Tech',
 	url: SITE_URL,
-	image: `${SITE_URL}/og-image.png`,
+	image: `${SITE_URL}/assets/og/og-home.png`,
 	description:
 		'Premium software engineering and IT consulting: custom web & mobile apps, AI bots and agents, infrastructure architecture, performance optimization, and security.',
 	parentOrganization: { '@id': `${SITE_URL}/#organization` },
@@ -75,7 +75,7 @@ export function aiEmployeesServiceSchema(offerings) {
 		serviceType: 'AI Employees',
 		name: 'AI Employees by Kwantum Tech',
 		url: `${SITE_URL}/ai-agents`,
-		image: `${SITE_URL}/og-ai-employees.png`,
+		image: `${SITE_URL}/assets/og/og-ai-employees.png`,
 		provider: { '@id': `${SITE_URL}/#organization` },
 		areaServed: 'Worldwide',
 		audience: {
@@ -106,11 +106,11 @@ export function aiAuditServiceSchema() {
 	return {
 		'@context': 'https://schema.org',
 		'@type': 'Service',
-		'@id': `${SITE_URL}/ai-audit/#service`,
+		'@id': `${SITE_URL}/audit/#service`,
 		serviceType: 'AI Audit',
 		name: 'AI Audit by Kwantum Tech',
-		url: `${SITE_URL}/ai-audit`,
-		image: `${SITE_URL}/og-ai-audit.png`,
+		url: `${SITE_URL}/audit`,
+		image: `${SITE_URL}/assets/og/og-ai-audit.png`,
 		provider: { '@id': `${SITE_URL}/#organization` },
 		areaServed: 'Worldwide',
 		audience: {
@@ -135,11 +135,11 @@ export function webAppsServiceSchema() {
 	return {
 		'@context': 'https://schema.org',
 		'@type': 'Service',
-		'@id': `${SITE_URL}/web-apps/#service`,
-		serviceType: 'Custom Web App Development',
-		name: 'Custom Web Apps by Kwantum Tech',
-		url: `${SITE_URL}/web-apps`,
-		image: `${SITE_URL}/og-image.png`,
+		'@id': `${SITE_URL}/apps/#service`,
+		serviceType: 'Custom App & Software Development',
+		name: 'Custom Apps & Software by Kwantum Tech',
+		url: `${SITE_URL}/apps`,
+		image: `${SITE_URL}/assets/og/og-home.png`,
 		provider: { '@id': `${SITE_URL}/#organization` },
 		areaServed: 'Worldwide',
 		audience: {
@@ -148,7 +148,7 @@ export function webAppsServiceSchema() {
 				'Owner-run businesses replacing spreadsheets and disconnected tools with custom software'
 		},
 		description:
-			'Custom web apps engineered around how your business runs — a written scope, a fixed price, and a working Release 1 in 30 days, with automation and AI built in. You own 100% of the code.'
+			'Web apps, mobile apps, custom software, and automations engineered around how your business runs — a written scope, a fixed price, and a working Release 1 in 21 days. You own 100% of the code.'
 	};
 }
 

@@ -3,16 +3,14 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="theme-color" content="#00ff41" />
+		<meta name="color-scheme" content="dark" />
+		<meta name="theme-color" content="#000000" />
 		<meta name="author" content="Kwantum Tech" />
 		<meta name="format-detection" content="telephone=no" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
-			rel="stylesheet"
-		/>
+		<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
 		<script>
+			// Apollo visitor tracker — deferred to idle so it never competes with
+			// first paint or the hero media for bandwidth.
 			function initApollo() {
 				var n = Math.random().toString(36).substring(7),
 					o = document.createElement('script');
@@ -24,18 +22,22 @@
 				};
 				document.head.appendChild(o);
 			}
-			initApollo();
+			if ('requestIdleCallback' in window) {
+				requestIdleCallback(initApollo, { timeout: 4000 });
+			} else {
+				window.addEventListener('load', function () { setTimeout(initApollo, 1500); });
+			}
 		</script>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<noscript>
 			<div
-				style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0a0a0a;color:#e8e8e8;font-family:'Raleway',system-ui,sans-serif;padding:24px;box-sizing:border-box;text-align:center;"
+				style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#000000;color:#e0ffe0;font-family:system-ui,sans-serif;padding:24px;box-sizing:border-box;text-align:center;"
 			>
 				<div style="max-width:520px;">
 					<h1 style="color:#00ff41;font-size:1.75rem;margin:0 0 12px;font-weight:700;">Kwantum Tech</h1>
-					<p style="font-size:1.05rem;line-height:1.6;margin:0 0 24px;color:#b8b8b8;">
+					<p style="font-size:1.05rem;line-height:1.6;margin:0 0 24px;color:#b8ccb8;">
 						This page needs JavaScript to load fully. If you're viewing it inside an
 						embedded preview or email client, please open it directly in your browser.
 					</p>
