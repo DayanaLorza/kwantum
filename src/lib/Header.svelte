@@ -7,8 +7,8 @@
 
   const links = [
     { href: "/", label: "Home" },
-    { href: "/ai-audit", label: "AI Audit" },
-    { href: "/web-apps", label: "Web Apps" },
+    { href: "/audit", label: "Audit" },
+    { href: "/apps", label: "Apps" },
     { href: "/ai-agents", label: "AI Employees" },
     { href: "/contact", label: "Contact" },
   ];

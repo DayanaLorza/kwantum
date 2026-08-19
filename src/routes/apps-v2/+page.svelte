@@ -240,7 +240,7 @@
         gsap.to("#stamp", { opacity: 1, scale: 1, rotate: -8, duration: 0.45, ease: "power4.in",
           scrollTrigger: { trigger: ".stampzone", start: "top 55%" } });
 
-        gsap.utils.toArray(".sheet-head, .door, .note").forEach((el) => {
+        gsap.utils.toArray(".sheet-head, .door, .note, .scopecard").forEach((el) => {
           gsap.from(el, { opacity: 0, y: 22, duration: 0.6, ease: "power3.out",
             scrollTrigger: { trigger: el, start: "top 88%" } });
         });
@@ -290,10 +290,13 @@
 </script>
 
 <Seo
-  title="Custom Web Apps in 21 Days | Kwantum Tech"
-  description="Custom web apps by Kwantum Tech: a written scope, a fixed price, and a working Release 1 in 21 days — automation and AI built in. You own 100% of the code."
+  title="Apps & Custom Software in 21 Days | Kwantum Tech"
+  noindex={true}
+  description="Web apps, mobile apps, custom software, and automations by Kwantum Tech: a written scope, a fixed price, and a working Release 1 in 21 days. You own 100% of the code."
   keywords={[
     "custom web app development",
+    "custom mobile app development",
+    "workflow automation",
     "custom web application development",
     "custom software for small business",
     "fixed price web app development",
@@ -309,7 +312,7 @@
     faqSchema(faqs),
     breadcrumbSchema([
       { name: "Home", path: "/" },
-      { name: "Web Apps", path: "/web-apps" },
+      { name: "Apps", path: "/apps" },
     ]),
   ]}
 />
@@ -321,12 +324,13 @@
   <section class="v2hero">
     <div class="v2hero__inner">
       <div class="hero__copy">
-        <p class="hero__eyebrow">Kwantum Tech <span class="sep">·</span> DWG NO. KT-26 <span class="sep">·</span> Web Apps</p>
+        <p class="hero__eyebrow">Kwantum Tech <span class="sep">·</span> DWG NO. KT-26 <span class="sep">·</span> Apps <span class="sep">·</span> REV B</p>
         <h1>Built to <span class="draw">your spec.</span></h1>
         <p class="hero__lead">
-          A custom web app engineered around how your business actually
-          runs — <strong>automation inside, live in 21 days</strong>. That's it
-          on the right, working. Click around.
+          Web apps, mobile apps, custom software, automations — engineered
+          around how your business actually runs,
+          <strong>live in 21 days</strong>. That's one working on the right.
+          Click around.
         </p>
         <div class="hero__ctas">
           <a class="btn btn--solid" href="#titleblock">Book a Scoping Call</a>
@@ -524,6 +528,45 @@
     </div>
   </section>
 
+  <!-- ══════════ SHEET 00 — SCOPE OF WORK ══════════ -->
+  <section class="scope">
+    <div class="scope__inner">
+      <div class="sheet-head">
+        <span class="no">SHEET 00</span>
+        <h2>Scope of work.</h2>
+        <span class="dim">SELECT ONE OR COMBINE · U.N.O.</span>
+      </div>
+      <div class="scope__grid">
+        <article class="scopecard">
+          <span class="scopecard__tag">TYPE A · WEB APPS</span>
+          <h3>The browser is the office.</h3>
+          <p>Dashboards, portals, booking systems, internal tools — the
+          software your business runs on, reachable from anywhere.</p>
+        </article>
+        <article class="scopecard">
+          <span class="scopecard__tag">TYPE B · MOBILE APPS</span>
+          <h3>Your operation, pocketable.</h3>
+          <p>iOS and Android from one codebase — for your crew in the field
+          and the clients who expect an app, not a bookmark.</p>
+        </article>
+        <article class="scopecard">
+          <span class="scopecard__tag">TYPE C · CUSTOM SOFTWARE</span>
+          <h3>The tool nobody sells.</h3>
+          <p>The thing no off-the-shelf product does — written from your
+          workflow, not a feature list, and owned by you outright.</p>
+        </article>
+        <article class="scopecard">
+          <span class="scopecard__tag">TYPE D · AUTOMATIONS</span>
+          <h3>Work that runs itself.</h3>
+          <p>Follow-ups, invoicing, scheduling, handoffs — wired end to end
+          so the busywork fires on time without a human pushing it.</p>
+        </article>
+      </div>
+      <p class="scope__note">Every type ships the same way: written scope,
+      fixed price, Release 1 in 21 days, code 100% yours.</p>
+    </div>
+  </section>
+
   <!-- ══════════ SHEET 01 — WALKTHROUGH ══════════ -->
   <section class="walk" id="walk" bind:this={walkEl}>
     <div class="walk__inner">
@@ -651,9 +694,9 @@
       <div class="doors__grid">
         <div class="door door--active">
           <span class="door__tag">You are here</span>
-          <h3>Web Apps</h3>
-          <p>A custom web app scoped in writing and shipped in 21 days —
-          automation and AI included.</p>
+          <h3>Apps</h3>
+          <p>Web apps, mobile apps, and custom software scoped in writing and
+          shipped in 21 days — automation and AI included.</p>
         </div>
         <div class="door">
           <span class="door__tag">Start smaller</span>
@@ -668,7 +711,7 @@
           handled 24/7 that never misses a lead.</p>
         </div>
       </div>
-      <p class="doors__link">Not sure what to build yet? <a href="/ai-audit">Start with the AI Audit →</a></p>
+      <p class="doors__link">Not sure what to build yet? <a href="/audit">Start with the AI Audit →</a></p>
     </div>
   </section>
 
@@ -805,6 +848,67 @@
     border: 1px solid var(--v2-line-strong); background: rgba(10, 16, 24, 0.5);
   }
   .btn--ghost:hover { border-color: var(--green); color: var(--green); }
+
+  /* ── Sheet 00: scope of work ── */
+  .scope { padding: 5rem 7vw 1rem; }
+  .scope__inner { max-width: 1280px; margin: 0 auto; }
+
+  .scope__grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1px;
+    background: var(--v2-line-strong);
+    border: 1px solid var(--v2-line-strong);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .scopecard {
+    background: var(--v2-panel);
+    padding: 1.9rem 1.6rem 2rem;
+    display: grid;
+    gap: 0.7rem;
+    align-content: start;
+  }
+
+  .scopecard__tag {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.2em;
+    color: var(--green);
+  }
+
+  .scopecard h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: #fff;
+  }
+
+  .scopecard p {
+    margin: 0;
+    color: rgba(223, 233, 226, 0.68);
+    line-height: 1.65;
+    font-size: 0.92rem;
+  }
+
+  .scope__note {
+    margin: 1.6rem 0 0;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(223, 233, 226, 0.45);
+  }
+
+  @media (max-width: 980px) {
+    .scope__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 560px) {
+    .scope__grid { grid-template-columns: 1fr; }
+  }
 
   /* ── Hero ── */
   .v2hero { min-height: 100vh; display: grid; align-items: center; padding: clamp(5rem, 10vh, 8rem) 7vw 4rem; }

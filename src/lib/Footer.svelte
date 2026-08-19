@@ -9,9 +9,9 @@
       <div>
         <h3>Explore</h3>
         <a href="/">Home</a>
-        <a href="/web-apps">Web Apps</a>
+        <a href="/apps">Apps</a>
         <a href="/ai-agents">AI Employees</a>
-        <a href="/ai-audit">AI Audit</a>
+        <a href="/audit">AI Audit</a>
       </div>
       <div>
         <h3>Connect</h3>

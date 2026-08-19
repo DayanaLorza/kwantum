@@ -6,8 +6,8 @@ export const prerender = true;
 // Public, indexable pages with relative priorities.
 const pages = [
 	{ path: '/', changefreq: 'weekly', priority: '1.0' },
-	{ path: '/web-apps', changefreq: 'weekly', priority: '0.9' },
-	{ path: '/ai-audit', changefreq: 'weekly', priority: '0.9' },
+	{ path: '/apps', changefreq: 'weekly', priority: '0.9' },
+	{ path: '/audit', changefreq: 'weekly', priority: '0.9' },
 	{ path: '/ai-agents', changefreq: 'weekly', priority: '0.9' },
 	{ path: '/contact', changefreq: 'monthly', priority: '0.7' }
 ];

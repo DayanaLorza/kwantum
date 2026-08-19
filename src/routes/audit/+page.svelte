@@ -89,7 +89,7 @@
     aiAuditServiceSchema(),
     breadcrumbSchema([
       { name: "Home", path: "/" },
-      { name: "AI Audit", path: "/ai-audit" },
+      { name: "AI Audit", path: "/audit" },
     ]),
   ]}
 />

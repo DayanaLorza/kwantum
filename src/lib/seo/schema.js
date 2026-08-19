@@ -106,10 +106,10 @@ export function aiAuditServiceSchema() {
 	return {
 		'@context': 'https://schema.org',
 		'@type': 'Service',
-		'@id': `${SITE_URL}/ai-audit/#service`,
+		'@id': `${SITE_URL}/audit/#service`,
 		serviceType: 'AI Audit',
 		name: 'AI Audit by Kwantum Tech',
-		url: `${SITE_URL}/ai-audit`,
+		url: `${SITE_URL}/audit`,
 		image: `${SITE_URL}/assets/og/og-ai-audit.png`,
 		provider: { '@id': `${SITE_URL}/#organization` },
 		areaServed: 'Worldwide',
@@ -135,10 +135,10 @@ export function webAppsServiceSchema() {
 	return {
 		'@context': 'https://schema.org',
 		'@type': 'Service',
-		'@id': `${SITE_URL}/web-apps/#service`,
-		serviceType: 'Custom Web App Development',
-		name: 'Custom Web Apps by Kwantum Tech',
-		url: `${SITE_URL}/web-apps`,
+		'@id': `${SITE_URL}/apps/#service`,
+		serviceType: 'Custom App & Software Development',
+		name: 'Custom Apps & Software by Kwantum Tech',
+		url: `${SITE_URL}/apps`,
 		image: `${SITE_URL}/assets/og/og-home.png`,
 		provider: { '@id': `${SITE_URL}/#organization` },
 		areaServed: 'Worldwide',
@@ -148,7 +148,7 @@ export function webAppsServiceSchema() {
 				'Owner-run businesses replacing spreadsheets and disconnected tools with custom software'
 		},
 		description:
-			'Custom web apps engineered around how your business runs — a written scope, a fixed price, and a working Release 1 in 21 days, with automation and AI built in. You own 100% of the code.'
+			'Web apps, mobile apps, custom software, and automations engineered around how your business runs — a written scope, a fixed price, and a working Release 1 in 21 days. You own 100% of the code.'
 	};
 }
 

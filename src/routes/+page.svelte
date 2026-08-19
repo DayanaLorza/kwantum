@@ -153,7 +153,7 @@
         <p class="proof__lead">
           45 minutes of your time going in, a written scorecard coming out. No
           adjectives — the numbers carry the argument.
-          <a class="proof__link" href="/ai-audit">About the AI Audit →</a>
+          <a class="proof__link" href="/audit">About the AI Audit →</a>
         </p>
       </header>
 
@@ -214,7 +214,7 @@
             Custom-built applications that load instantly, look impeccable, and
             keep your operations private.
           </p>
-          <a class="services__link" href="/web-apps">
+          <a class="services__link" href="/apps">
             Scoped in writing · Release 1 in 21 days
             <span class="services__arrows" aria-hidden="true"><i>→</i><i>→</i></span>
           </a>
@@ -284,7 +284,7 @@
 
       <p class="process__more" use:reveal>
         The full walkthrough — drawings, guarantee, and the working demo — is on
-        <a href="/web-apps">the Web Apps page</a>.
+        <a href="/apps">the Apps page</a>.
       </p>
     </div>
   </section>
@@ -300,7 +300,7 @@
           business more efficient — 45 minutes, one written plan, 5+ hours back
           a week.
         </p>
-        <a class="btn btn--solid" href="/ai-audit">Get your AI Audit</a>
+        <a class="btn btn--solid" href="/audit">Get your AI Audit</a>
       </div>
       <div class="audit__stat" use:reveal={{ delay: 150 }}>
         <span class="audit__stat-label">Hours handed back</span>
