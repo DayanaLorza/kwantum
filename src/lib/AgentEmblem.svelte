@@ -52,13 +52,13 @@
   }
 
   .emblem--acquisition {
-    --emblem: #00e5ff;
-    --emblem-soft: rgba(0, 229, 255, 0.5);
+    --emblem: #00ff41;
+    --emblem-soft: rgba(0, 255, 65, 0.5);
   }
 
   .emblem--operations {
-    --emblem: #b66bff;
-    --emblem-soft: rgba(182, 107, 255, 0.5);
+    --emblem: #e0ffe0;
+    --emblem-soft: rgba(224, 255, 224, 0.5);
   }
 
   .emblem svg {

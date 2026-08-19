@@ -206,6 +206,66 @@ img, video { max-width: 100%; height: auto; }
   box-shadow: 0 6px 24px rgb(11 19 13 / 0.25);
 }
 
+/* ── Section bands ────────────────────────────────────────────────────
+   Full-bleed tone bands with a constrained inner column. Pages alternate
+   band tones deliberately — no two dark bands adjacent. */
+
+.band {
+  padding: var(--sp-section) var(--gutter);
+}
+
+.band--panel {
+  background: var(--tone-panel);
+  border-block: 1px solid var(--line);
+}
+
+.band--paper {
+  background: var(--tone-paper);
+  color: var(--ink);
+}
+
+.band--paper h2,
+.band--paper h3 {
+  color: var(--ink);
+}
+
+/* green fails on paper — eyebrows go ink with a green tick */
+.band--paper .eyebrow {
+  color: var(--ink-dim);
+}
+
+.band--paper .eyebrow::before {
+  content: "▸ ";
+  color: #00a32b;
+}
+
+.band__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.band__head {
+  max-width: 720px;
+  margin: 0 auto var(--sp-5);
+  text-align: center;
+}
+
+.band__head h2 {
+  font-size: var(--text-3xl);
+  font-weight: 600;
+  margin: var(--sp-2) 0 0;
+}
+
+.band__head .band__sub {
+  line-height: 1.7;
+  margin: 0.9rem 0 0;
+  color: var(--text-dim);
+}
+
+.band--paper .band__head .band__sub {
+  color: var(--ink-dim);
+}
+
 /* ── Reveal system ────────────────────────────────────────────────────
    Elements opt in with `use:reveal` (src/lib/motion.js) which sets
    [data-reveal] and flips --p 0→1 when the element enters. Everything
